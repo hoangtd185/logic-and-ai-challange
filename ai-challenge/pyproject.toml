@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medextract"
+version = "0.1.0"
+description = "Extract structured JSON with confidence scores from medical documents."
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6,<3",
+    "google-genai>=1.0",
+    "pymupdf>=1.24",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "python-multipart>=0.0.9",
+    "pillow>=10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+# Only needed to regenerate samples/ (the generated files are committed).
+samples = ["jinja2>=3.1", "playwright>=1.40", "pillow>=10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"medextract.llm.prompts" = ["*.md"]
+"medextract.web" = ["static/*"]
+
+[project.scripts]
+medextract = "medextract.__main__:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
+markers = ["live: calls the real LLM API (deselected by default)"]
+addopts = "-m 'not live'"

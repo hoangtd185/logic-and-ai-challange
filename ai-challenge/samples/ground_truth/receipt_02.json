@@ -1,0 +1,75 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "receipt_02",
+  "source_file": "documents/receipt_02.pdf",
+  "document_type": "receipt",
+  "fields": {
+    "hospital_name": "Lotus Bay International Hospital",
+    "patient_name": "Ms. Emily Carter",
+    "date": {
+      "printed": "05/04/2024",
+      "iso": "2024-04-05"
+    },
+    "items": [
+      {
+        "description": "Emergency room service fee",
+        "quantity": 1,
+        "unit_price": 3500.0,
+        "total": 3500.0
+      },
+      {
+        "description": "Wound suturing (laceration > 5 cm)",
+        "quantity": 1,
+        "unit_price": 6800.0,
+        "total": 6800.0
+      },
+      {
+        "description": "Tetanus toxoid vaccine",
+        "quantity": 1,
+        "unit_price": 900.0,
+        "total": 900.0
+      },
+      {
+        "description": "Sterile dressing set",
+        "quantity": 3,
+        "unit_price": 450.0,
+        "total": 1350.0
+      },
+      {
+        "description": "IV fluid - Normal saline 1000 ml",
+        "quantity": 2,
+        "unit_price": 1200.0,
+        "total": 2400.0
+      },
+      {
+        "description": "Observation ward (per night)",
+        "quantity": 1,
+        "unit_price": 8000.0,
+        "total": 8000.0
+      }
+    ],
+    "grand_total": 24950.0,
+    "payment_method": null
+  },
+  "absent_fields": [
+    "payment_method"
+  ],
+  "expected_validation_errors": [
+    {
+      "field": "grand_total",
+      "code": "TOTAL_MISMATCH"
+    }
+  ],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "en",
+    "currency": "THB",
+    "hard_cases": [
+      "Missing field: unpaid invoice with no payment section, so payment_method must be null.",
+      "Total mismatch: line items sum to 22,950.00 but the printed total is 24,950.00 (8.0% off), so TOTAL_MISMATCH is expected.",
+      "Distractor date: a payment due date is printed next to the invoice date."
+    ]
+  }
+}

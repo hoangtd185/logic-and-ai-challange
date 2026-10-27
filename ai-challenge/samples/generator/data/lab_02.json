@@ -1,0 +1,41 @@
+{
+  "id": "lab_02",
+  "type": "lab_report",
+  "template": "lab_report.html.j2",
+  "output": {"format": "png", "scan": {"rotate": 1.2, "seed": 802}},
+  "hard_cases": [
+    "Scanned image: rotated, noisy PNG with no text layer.",
+    "Missing fields: the qualitative urine protein test has no unit and no printed flag, so both must be null. The flag must not be derived from the reference range."
+  ],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {
+      "lab_name": "Mekong Clinical Laboratory",
+      "patient_name": "Le Thi Hoa",
+      "date": "03/08/2024",
+      "tests": [
+        {"test_name": "White blood cells (WBC)", "result": 11.8, "unit": "x10^3/uL", "reference_range": "4.0-10.0", "flag": "high"},
+        {"test_name": "Hemoglobin", "result": 11.2, "unit": "g/dL", "reference_range": "12.0-15.5", "flag": "low"},
+        {"test_name": "Platelets", "result": 245, "unit": "x10^3/uL", "reference_range": "150-450", "flag": "normal"},
+        {"test_name": "C-reactive protein (CRP)", "result": 24, "unit": "mg/L", "reference_range": "< 5", "flag": "high"},
+        {"test_name": "Urine protein", "result": "Negative", "unit": null, "reference_range": "Negative", "flag": null}
+      ]
+    },
+    "extra": {
+      "accent": "#6a4a12",
+      "logo_initials": "MC",
+      "address": "56 Hoa Binh Avenue, Ninh Kieu District, Can Tho, Vietnam",
+      "accreditation": "ISO 15189:2012 - VILAS Medical 012",
+      "lab_no": "MCL-0803-2217",
+      "age_sex": "36 y / Female",
+      "referred_by": "Outpatient Dept. - Internal Medicine",
+      "specimen": "EDTA whole blood, serum, spot urine",
+      "groups": [
+        {"title": "Hematology & inflammation", "tests": [0, 1, 2, 3]},
+        {"title": "Urinalysis", "tests": [4]}
+      ],
+      "technologist": "Nguyen Van Phuc, BSc MLT",
+      "footer": "Specimen received 03/08/2024 07:40."
+    }
+  }
+}

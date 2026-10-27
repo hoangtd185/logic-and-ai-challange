@@ -1,0 +1,111 @@
+{
+  "document": "discharge_02.pdf",
+  "sha256": "ec4ae7f7790d49095a5ea0274e2f2743eb23858155a3a25aeaa10114ef5a313c",
+  "source_mime_type": "application/pdf",
+  "pages": 1,
+  "has_text_layer": true,
+  "model": "gemini-3.8-flash",
+  "classification": {
+    "raw": {
+      "evidence": "Titled 'DISCHARGE SUMMARY' from Andaman Coast Hospital, featuring Admission date and Discharge date, Diagnosis ('Acute appendicitis'), 'HOSPITAL COURSE', and 'DISCHARGE INSTRUCTIONS'.",
+      "document_type": "discharge_summary",
+      "confidence": 1.0
+    },
+    "seconds": 0.0,
+    "call": {
+      "model": "gemini-3.8-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": null
+    }
+  },
+  "extraction": {
+    "raw": {
+      "hospital_name": {
+        "value": "Andaman Coast Hospital",
+        "confidence": 0.99
+      },
+      "patient_name": {
+        "value": "Mr. David Lim",
+        "confidence": 0.99
+      },
+      "admission_date": {
+        "value": "26/02/2024",
+        "confidence": 0.99
+      },
+      "discharge_date": {
+        "value": "30/02/2024",
+        "confidence": 0.99
+      },
+      "diagnosis": {
+        "value": {
+          "primary": {
+            "value": "Acute appendicitis",
+            "confidence": 0.99
+          },
+          "secondary": {
+            "value": [
+              "Mild dehydration"
+            ],
+            "confidence": 0.99
+          }
+        },
+        "confidence": 0.99
+      },
+      "procedures_performed": {
+        "value": [
+          "Laparoscopic appendectomy"
+        ],
+        "confidence": 0.99
+      },
+      "attending_physician": {
+        "value": null,
+        "confidence": 0.0
+      },
+      "discharge_instructions": {
+        "value": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops.",
+        "confidence": 0.99
+      }
+    },
+    "adjustments": [],
+    "seconds": 0.01,
+    "call": {
+      "model": "gemini-3.8-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": null
+    }
+  },
+  "validation": [
+    {
+      "field": "discharge_date",
+      "code": "INVALID_DATE",
+      "message": "'30/02/2024' is not a valid date: day is out of range for month (read as day 30, month 2, year 2024)",
+      "severity": "error"
+    }
+  ],
+  "confidence": {
+    "method": "text_layer",
+    "adjustments": [
+      {
+        "field": "discharge_date",
+        "model_confidence": 0.99,
+        "final_confidence": 0.3,
+        "reasons": [
+          "validation INVALID_DATE: '30/02/2024' is not a valid date: day is out of range for month (read as day 30, month 2, year 2024)"
+        ]
+      }
+    ],
+    "checked_fields": 8,
+    "notes": []
+  },
+  "seconds": 0.01
+}

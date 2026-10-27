@@ -1,0 +1,146 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>receipt_02</title>
+<style>
+  /* A4. PDFs use @page margins; PNG "scans" have no pages, so .page pads instead. */
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  :root { --accent: #8a3b12; --ink: #1c2229; --muted: #5d6874; --rule: #c9d0d8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body {
+    font-family: "Segoe UI", "DejaVu Sans", "Noto Sans", Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.4; color: var(--ink);
+  }
+  body.scan { width: 210mm; }
+  body.scan .page { padding: 14mm; }
+  h1, h2, h3 { margin: 0; }
+  .muted { color: var(--muted); font-size: 9pt; }
+  .hdr { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); }
+  .logo {
+    width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16pt; flex: none;
+  }
+  .org { flex: 1; }
+  .org-name { font-size: 15pt; font-weight: 700; }
+  .doc-title { font-size: 17pt; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-align: right; }
+  .doc-title.center { text-align: center; margin: 14px 0 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  table.meta { margin: 12px 0; }
+  table.meta th { text-align: left; color: var(--muted); font-weight: 600; width: 18%; padding: 3px 6px 3px 0; vertical-align: top; }
+  table.meta td { padding: 3px 12px 3px 0; vertical-align: top; }
+  table.grid th { background: #eef1f4; text-align: left; font-size: 9pt; padding: 6px; border-bottom: 1.5px solid var(--ink); }
+  table.grid td { padding: 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .num { text-align: right; white-space: nowrap; }
+  .section { margin-top: 14px; }
+  .section h3 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px;
+  }
+  .section p { margin: 4px 0; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  .sign { margin-top: 28px; display: flex; justify-content: flex-end; }
+  .sign-box { width: 46%; text-align: center; }
+  .sign-line { border-bottom: 1px dotted var(--ink); height: 34px; margin: 4px 0; }
+  .footer { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 6px; }
+  .page-break { break-before: page; }
+  
+  .totals { margin-top: 10px; margin-left: auto; width: 52%; }
+  .totals .row { display: flex; justify-content: space-between; padding: 6px 8px; }
+  .totals .grand { font-size: 12.5pt; font-weight: 800; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  .paid {
+    display: inline-block; margin-top: 14px; padding: 4px 16px; border: 3px solid #2e7d4f; color: #2e7d4f;
+    font-weight: 800; font-size: 15pt; letter-spacing: .15em; transform: rotate(-6deg);
+  }
+  .notice { margin-top: 14px; padding: 8px 10px; background: #fff6e5; border-left: 4px solid #e0a020; }
+
+</style>
+</head>
+<body class="print">
+<div class="page">
+
+<header class="hdr">
+  <div class="logo">LB</div>
+  <div class="org">
+    <div class="org-name">Lotus Bay International Hospital</div>
+    <div class="muted">21/7 Patong Beach Road, Kathu, Phuket 83150, Thailand</div>
+    <div class="muted">Tel. +66 76 555 0123 &middot; Tax ID 0835561004417</div>
+  </div>
+  <div class="doc-title">INVOICE</div>
+</header>
+
+<table class="meta">
+  <tr><th>Invoice no.</th><td>LBH-INV-24-01962</td><th>Date</th><td>05/04/2024</td></tr>
+  <tr><th>Patient</th><td>Ms. Emily Carter</td><th>HN</th><td>HN 24-077310</td></tr>
+  <tr><th>Department</th><td>Emergency Department</td>
+    <th>Payment due</th><td>05/05/2024</td>
+  </tr>
+</table>
+
+<table class="grid">
+  <thead><tr>
+    <th>#</th><th>Description</th><th class="num">Qty</th>
+    <th class="num">Unit price (THB)</th><th class="num">Amount (THB)</th>
+  </tr></thead>
+  <tbody>
+  
+    <tr>
+      <td>1</td><td>Emergency room service fee</td>
+      <td class="num">1</td>
+      <td class="num">3,500.00</td>
+      <td class="num">3,500.00</td>
+    </tr>
+  
+    <tr>
+      <td>2</td><td>Wound suturing (laceration &gt; 5 cm)</td>
+      <td class="num">1</td>
+      <td class="num">6,800.00</td>
+      <td class="num">6,800.00</td>
+    </tr>
+  
+    <tr>
+      <td>3</td><td>Tetanus toxoid vaccine</td>
+      <td class="num">1</td>
+      <td class="num">900.00</td>
+      <td class="num">900.00</td>
+    </tr>
+  
+    <tr>
+      <td>4</td><td>Sterile dressing set</td>
+      <td class="num">3</td>
+      <td class="num">450.00</td>
+      <td class="num">1,350.00</td>
+    </tr>
+  
+    <tr>
+      <td>5</td><td>IV fluid - Normal saline 1000 ml</td>
+      <td class="num">2</td>
+      <td class="num">1,200.00</td>
+      <td class="num">2,400.00</td>
+    </tr>
+  
+    <tr>
+      <td>6</td><td>Observation ward (per night)</td>
+      <td class="num">1</td>
+      <td class="num">8,000.00</td>
+      <td class="num">8,000.00</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<div class="totals">
+  <div class="row grand"><span>Total amount due</span><span>24,950.00 THB</span></div>
+</div>
+
+
+  <div class="notice">This invoice has not been settled. Please quote the invoice number when making payment. Itemised charges are subject to final review by the billing department.</div>
+
+
+<div class="footer muted">Billing enquiries: billing@lotusbay-hospital.example - Mon to Fri, 08:00-17:00.</div>
+
+</div>
+</body>
+</html>

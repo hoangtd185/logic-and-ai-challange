@@ -1,0 +1,2495 @@
+{
+  "summary": {
+    "documents": 11,
+    "evaluated": 5,
+    "not_run": [
+      "prescription_01",
+      "prescription_02",
+      "receipt_01",
+      "receipt_02",
+      "receipt_03",
+      "electricity_bill_01"
+    ],
+    "classification": {
+      "correct": 5,
+      "total": 5
+    },
+    "fields": {
+      "correct": 98,
+      "total": 98
+    },
+    "outcomes": {
+      "correct": 94,
+      "correct_null": 4
+    },
+    "by_type": {
+      "discharge_summary": {
+        "correct": 27,
+        "total": 27
+      },
+      "lab_report": {
+        "correct": 71,
+        "total": 71
+      }
+    },
+    "by_field": [
+      {
+        "document_type": "discharge_summary",
+        "field": "admission_date",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "attending_physician",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "diagnosis.primary",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "diagnosis.secondary",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "discharge_date",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "discharge_instructions",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "hospital_name",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "patient_name",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "discharge_summary",
+        "field": "procedures_performed",
+        "correct": 3,
+        "total": 3
+      },
+      {
+        "document_type": "lab_report",
+        "field": "date",
+        "correct": 2,
+        "total": 2
+      },
+      {
+        "document_type": "lab_report",
+        "field": "lab_name",
+        "correct": 2,
+        "total": 2
+      },
+      {
+        "document_type": "lab_report",
+        "field": "patient_name",
+        "correct": 2,
+        "total": 2
+      },
+      {
+        "document_type": "lab_report",
+        "field": "tests[].flag",
+        "correct": 13,
+        "total": 13
+      },
+      {
+        "document_type": "lab_report",
+        "field": "tests[].reference_range",
+        "correct": 13,
+        "total": 13
+      },
+      {
+        "document_type": "lab_report",
+        "field": "tests[].result",
+        "correct": 13,
+        "total": 13
+      },
+      {
+        "document_type": "lab_report",
+        "field": "tests[].test_name",
+        "correct": 13,
+        "total": 13
+      },
+      {
+        "document_type": "lab_report",
+        "field": "tests[].unit",
+        "correct": 13,
+        "total": 13
+      }
+    ],
+    "validation": {
+      "matched": 0,
+      "unexpected": 0,
+      "missing": 0,
+      "documents_checked": 0
+    },
+    "predates_validation": [
+      "discharge_01",
+      "discharge_02",
+      "discharge_03",
+      "lab_01",
+      "lab_02"
+    ],
+    "confidence": {
+      "returned_values": 0,
+      "mean_confidence_correct": null,
+      "mean_confidence_wrong": null,
+      "correct_count": 0,
+      "wrong_count": 0,
+      "separation_auc": null,
+      "mean_confidence_correct_nulls": null,
+      "mean_confidence_missed": null,
+      "buckets": [],
+      "meaningful": null
+    },
+    "confidence_model": {
+      "returned_values": 94,
+      "mean_confidence_correct": 0.99,
+      "mean_confidence_wrong": null,
+      "correct_count": 94,
+      "wrong_count": 0,
+      "separation_auc": null,
+      "mean_confidence_correct_nulls": 0.0,
+      "mean_confidence_missed": null,
+      "buckets": [
+        {
+          "range": "0.95-1.00",
+          "values": 94,
+          "accuracy": 1.0
+        }
+      ],
+      "meaningful": null
+    }
+  },
+  "documents": [
+    {
+      "document": "discharge_01",
+      "expected_type": "discharge_summary",
+      "predicted_type": "discharge_summary",
+      "type_confidence": 1.0,
+      "status": "evaluated",
+      "predates_validation": true,
+      "model_scores": [
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "hospital_name",
+          "group": "hospital_name",
+          "expected": "Chao Phraya Medical Center",
+          "predicted": "Chao Phraya Medical Center",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Mrs. Somsri Chaiyaporn",
+          "predicted": "Mrs. Somsri Chaiyaporn",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "admission_date",
+          "group": "admission_date",
+          "expected": {
+            "printed": "02/01/2024",
+            "iso": "2024-01-02"
+          },
+          "predicted": "02/01/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "discharge_date",
+          "group": "discharge_date",
+          "expected": {
+            "printed": "09/01/2024",
+            "iso": "2024-01-09"
+          },
+          "predicted": "09/01/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.primary",
+          "group": "diagnosis.primary",
+          "expected": "Community-acquired pneumonia, right lower lobe",
+          "predicted": "Community-acquired pneumonia, right lower lobe",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.secondary",
+          "group": "diagnosis.secondary",
+          "expected": [
+            "Type 2 diabetes mellitus",
+            "Essential hypertension"
+          ],
+          "predicted": [
+            "Type 2 diabetes mellitus",
+            "Essential hypertension"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "procedures_performed",
+          "group": "procedures_performed",
+          "expected": [
+            "Chest X-ray",
+            "Bronchoscopy with bronchoalveolar lavage"
+          ],
+          "predicted": [
+            "Chest X-ray",
+            "Bronchoscopy with bronchoalveolar lavage"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "attending_physician",
+          "group": "attending_physician",
+          "expected": "Dr. Pichit Rattanakorn",
+          "predicted": "Dr. Pichit Rattanakorn",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "discharge_instructions",
+          "group": "discharge_instructions",
+          "expected": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.",
+          "predicted": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.",
+          "confidence": 0.99,
+          "outcome": "correct"
+        }
+      ],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": [
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "hospital_name",
+          "group": "hospital_name",
+          "expected": "Chao Phraya Medical Center",
+          "predicted": "Chao Phraya Medical Center",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Mrs. Somsri Chaiyaporn",
+          "predicted": "Mrs. Somsri Chaiyaporn",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "admission_date",
+          "group": "admission_date",
+          "expected": {
+            "printed": "02/01/2024",
+            "iso": "2024-01-02"
+          },
+          "predicted": "02/01/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "discharge_date",
+          "group": "discharge_date",
+          "expected": {
+            "printed": "09/01/2024",
+            "iso": "2024-01-09"
+          },
+          "predicted": "09/01/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.primary",
+          "group": "diagnosis.primary",
+          "expected": "Community-acquired pneumonia, right lower lobe",
+          "predicted": "Community-acquired pneumonia, right lower lobe",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.secondary",
+          "group": "diagnosis.secondary",
+          "expected": [
+            "Type 2 diabetes mellitus",
+            "Essential hypertension"
+          ],
+          "predicted": [
+            "Type 2 diabetes mellitus",
+            "Essential hypertension"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "procedures_performed",
+          "group": "procedures_performed",
+          "expected": [
+            "Chest X-ray",
+            "Bronchoscopy with bronchoalveolar lavage"
+          ],
+          "predicted": [
+            "Chest X-ray",
+            "Bronchoscopy with bronchoalveolar lavage"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "attending_physician",
+          "group": "attending_physician",
+          "expected": "Dr. Pichit Rattanakorn",
+          "predicted": "Dr. Pichit Rattanakorn",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_01",
+          "document_type": "discharge_summary",
+          "field": "discharge_instructions",
+          "group": "discharge_instructions",
+          "expected": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.",
+          "predicted": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "document": "discharge_02",
+      "expected_type": "discharge_summary",
+      "predicted_type": "discharge_summary",
+      "type_confidence": 1.0,
+      "status": "evaluated",
+      "predates_validation": true,
+      "model_scores": [
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "hospital_name",
+          "group": "hospital_name",
+          "expected": "Andaman Coast Hospital",
+          "predicted": "Andaman Coast Hospital",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Mr. David Lim",
+          "predicted": "Mr. David Lim",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "admission_date",
+          "group": "admission_date",
+          "expected": {
+            "printed": "26/02/2024",
+            "iso": "2024-02-26"
+          },
+          "predicted": "26/02/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "discharge_date",
+          "group": "discharge_date",
+          "expected": {
+            "printed": "30/02/2024",
+            "iso": null
+          },
+          "predicted": "30/02/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.primary",
+          "group": "diagnosis.primary",
+          "expected": "Acute appendicitis",
+          "predicted": "Acute appendicitis",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.secondary",
+          "group": "diagnosis.secondary",
+          "expected": [
+            "Mild dehydration"
+          ],
+          "predicted": [
+            "Mild dehydration"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "procedures_performed",
+          "group": "procedures_performed",
+          "expected": [
+            "Laparoscopic appendectomy"
+          ],
+          "predicted": [
+            "Laparoscopic appendectomy"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "attending_physician",
+          "group": "attending_physician",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null"
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "discharge_instructions",
+          "group": "discharge_instructions",
+          "expected": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops.",
+          "predicted": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops.",
+          "confidence": 0.99,
+          "outcome": "correct"
+        }
+      ],
+      "validation_expected": [
+        [
+          "discharge_date",
+          "INVALID_DATE"
+        ]
+      ],
+      "validation_actual": [],
+      "fields": [
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "hospital_name",
+          "group": "hospital_name",
+          "expected": "Andaman Coast Hospital",
+          "predicted": "Andaman Coast Hospital",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Mr. David Lim",
+          "predicted": "Mr. David Lim",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "admission_date",
+          "group": "admission_date",
+          "expected": {
+            "printed": "26/02/2024",
+            "iso": "2024-02-26"
+          },
+          "predicted": "26/02/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "discharge_date",
+          "group": "discharge_date",
+          "expected": {
+            "printed": "30/02/2024",
+            "iso": null
+          },
+          "predicted": "30/02/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.primary",
+          "group": "diagnosis.primary",
+          "expected": "Acute appendicitis",
+          "predicted": "Acute appendicitis",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.secondary",
+          "group": "diagnosis.secondary",
+          "expected": [
+            "Mild dehydration"
+          ],
+          "predicted": [
+            "Mild dehydration"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "procedures_performed",
+          "group": "procedures_performed",
+          "expected": [
+            "Laparoscopic appendectomy"
+          ],
+          "predicted": [
+            "Laparoscopic appendectomy"
+          ],
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "attending_physician",
+          "group": "attending_physician",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null",
+          "correct": true
+        },
+        {
+          "document": "discharge_02",
+          "document_type": "discharge_summary",
+          "field": "discharge_instructions",
+          "group": "discharge_instructions",
+          "expected": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops.",
+          "predicted": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops.",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "document": "discharge_03",
+      "expected_type": "discharge_summary",
+      "predicted_type": "discharge_summary",
+      "type_confidence": 0.99,
+      "status": "evaluated",
+      "predates_validation": true,
+      "model_scores": [
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "hospital_name",
+          "group": "hospital_name",
+          "expected": "Bệnh viện Đa khoa Tâm An",
+          "predicted": "Bệnh viện Đa khoa Tâm An",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Nguyễn Thị Lan",
+          "predicted": "Nguyễn Thị Lan",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "admission_date",
+          "group": "admission_date",
+          "expected": {
+            "printed": "10/05/2024",
+            "iso": "2024-05-10"
+          },
+          "predicted": "10/05/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "discharge_date",
+          "group": "discharge_date",
+          "expected": {
+            "printed": "15/05/2024",
+            "iso": "2024-05-15"
+          },
+          "predicted": "15/05/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.primary",
+          "group": "diagnosis.primary",
+          "expected": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+          "predicted": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.secondary",
+          "group": "diagnosis.secondary",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "procedures_performed",
+          "group": "procedures_performed",
+          "expected": [
+            "Truyền dịch tĩnh mạch",
+            "Theo dõi công thức máu hằng ngày"
+          ],
+          "predicted": [
+            "Truyền dịch tĩnh mạch",
+            "Theo dõi công thức máu hằng ngày"
+          ],
+          "confidence": 0.98,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "attending_physician",
+          "group": "attending_physician",
+          "expected": "BS. CKII Phạm Văn Hùng",
+          "predicted": "BS. CKII Phạm Văn Hùng",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "discharge_instructions",
+          "group": "discharge_instructions",
+          "expected": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục.",
+          "predicted": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục.",
+          "confidence": 0.99,
+          "outcome": "correct"
+        }
+      ],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": [
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "hospital_name",
+          "group": "hospital_name",
+          "expected": "Bệnh viện Đa khoa Tâm An",
+          "predicted": "Bệnh viện Đa khoa Tâm An",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Nguyễn Thị Lan",
+          "predicted": "Nguyễn Thị Lan",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "admission_date",
+          "group": "admission_date",
+          "expected": {
+            "printed": "10/05/2024",
+            "iso": "2024-05-10"
+          },
+          "predicted": "10/05/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "discharge_date",
+          "group": "discharge_date",
+          "expected": {
+            "printed": "15/05/2024",
+            "iso": "2024-05-15"
+          },
+          "predicted": "15/05/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.primary",
+          "group": "diagnosis.primary",
+          "expected": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+          "predicted": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "diagnosis.secondary",
+          "group": "diagnosis.secondary",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "procedures_performed",
+          "group": "procedures_performed",
+          "expected": [
+            "Truyền dịch tĩnh mạch",
+            "Theo dõi công thức máu hằng ngày"
+          ],
+          "predicted": [
+            "Truyền dịch tĩnh mạch",
+            "Theo dõi công thức máu hằng ngày"
+          ],
+          "confidence": 0.98,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "attending_physician",
+          "group": "attending_physician",
+          "expected": "BS. CKII Phạm Văn Hùng",
+          "predicted": "BS. CKII Phạm Văn Hùng",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "discharge_03",
+          "document_type": "discharge_summary",
+          "field": "discharge_instructions",
+          "group": "discharge_instructions",
+          "expected": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục.",
+          "predicted": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục.",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "document": "lab_01",
+      "expected_type": "lab_report",
+      "predicted_type": "lab_report",
+      "type_confidence": 1.0,
+      "status": "evaluated",
+      "predates_validation": true,
+      "model_scores": [
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "lab_name",
+          "group": "lab_name",
+          "expected": "Silom Diagnostic Laboratory",
+          "predicted": "Silom Diagnostic Laboratory",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Mr. Kittisak Boonmee",
+          "predicted": "Mr. Kittisak Boonmee",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "date",
+          "group": "date",
+          "expected": {
+            "printed": "20/07/2024",
+            "iso": "2024-07-20"
+          },
+          "predicted": "20/07/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].test_name",
+          "group": "tests[].test_name",
+          "expected": "Fasting plasma glucose",
+          "predicted": "Fasting plasma glucose",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].result",
+          "group": "tests[].result",
+          "expected": 126,
+          "predicted": 126,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "70-99",
+          "predicted": "70-99",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].test_name",
+          "group": "tests[].test_name",
+          "expected": "HbA1c",
+          "predicted": "HbA1c",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].result",
+          "group": "tests[].result",
+          "expected": 6.9,
+          "predicted": 6.9,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].unit",
+          "group": "tests[].unit",
+          "expected": "%",
+          "predicted": "%",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "4.0-5.6",
+          "predicted": "4.0-5.6",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].test_name",
+          "group": "tests[].test_name",
+          "expected": "Total cholesterol",
+          "predicted": "Total cholesterol",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].result",
+          "group": "tests[].result",
+          "expected": 182,
+          "predicted": 182,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 200",
+          "predicted": "< 200",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].test_name",
+          "group": "tests[].test_name",
+          "expected": "LDL cholesterol",
+          "predicted": "LDL cholesterol",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].result",
+          "group": "tests[].result",
+          "expected": 118,
+          "predicted": 118,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 130",
+          "predicted": "< 130",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].test_name",
+          "group": "tests[].test_name",
+          "expected": "HDL cholesterol",
+          "predicted": "HDL cholesterol",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].result",
+          "group": "tests[].result",
+          "expected": 36,
+          "predicted": 36,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "> 40",
+          "predicted": "> 40",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].flag",
+          "group": "tests[].flag",
+          "expected": "low",
+          "predicted": "low",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].test_name",
+          "group": "tests[].test_name",
+          "expected": "Triglycerides",
+          "predicted": "Triglycerides",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].result",
+          "group": "tests[].result",
+          "expected": 210,
+          "predicted": 210,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 150",
+          "predicted": "< 150",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].test_name",
+          "group": "tests[].test_name",
+          "expected": "Creatinine",
+          "predicted": "Creatinine",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].result",
+          "group": "tests[].result",
+          "expected": 0.9,
+          "predicted": 0.9,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "0.7-1.3",
+          "predicted": "0.7-1.3",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].test_name",
+          "group": "tests[].test_name",
+          "expected": "Hemoglobin",
+          "predicted": "Hemoglobin",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].result",
+          "group": "tests[].result",
+          "expected": 12.1,
+          "predicted": 12.1,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].unit",
+          "group": "tests[].unit",
+          "expected": "g/dL",
+          "predicted": "g/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "13.0-17.0",
+          "predicted": "13.0-17.0",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].flag",
+          "group": "tests[].flag",
+          "expected": "low",
+          "predicted": "low",
+          "confidence": 0.99,
+          "outcome": "correct"
+        }
+      ],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": [
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "lab_name",
+          "group": "lab_name",
+          "expected": "Silom Diagnostic Laboratory",
+          "predicted": "Silom Diagnostic Laboratory",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Mr. Kittisak Boonmee",
+          "predicted": "Mr. Kittisak Boonmee",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "date",
+          "group": "date",
+          "expected": {
+            "printed": "20/07/2024",
+            "iso": "2024-07-20"
+          },
+          "predicted": "20/07/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].test_name",
+          "group": "tests[].test_name",
+          "expected": "Fasting plasma glucose",
+          "predicted": "Fasting plasma glucose",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].result",
+          "group": "tests[].result",
+          "expected": 126,
+          "predicted": 126.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "70-99",
+          "predicted": "70-99",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[0].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].test_name",
+          "group": "tests[].test_name",
+          "expected": "HbA1c",
+          "predicted": "HbA1c",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].result",
+          "group": "tests[].result",
+          "expected": 6.9,
+          "predicted": 6.9,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].unit",
+          "group": "tests[].unit",
+          "expected": "%",
+          "predicted": "%",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "4.0-5.6",
+          "predicted": "4.0-5.6",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[1].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].test_name",
+          "group": "tests[].test_name",
+          "expected": "Total cholesterol",
+          "predicted": "Total cholesterol",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].result",
+          "group": "tests[].result",
+          "expected": 182,
+          "predicted": 182.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 200",
+          "predicted": "< 200",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[2].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].test_name",
+          "group": "tests[].test_name",
+          "expected": "LDL cholesterol",
+          "predicted": "LDL cholesterol",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].result",
+          "group": "tests[].result",
+          "expected": 118,
+          "predicted": 118.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 130",
+          "predicted": "< 130",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[3].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].test_name",
+          "group": "tests[].test_name",
+          "expected": "HDL cholesterol",
+          "predicted": "HDL cholesterol",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].result",
+          "group": "tests[].result",
+          "expected": 36,
+          "predicted": 36.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "> 40",
+          "predicted": "> 40",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[4].flag",
+          "group": "tests[].flag",
+          "expected": "low",
+          "predicted": "low",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].test_name",
+          "group": "tests[].test_name",
+          "expected": "Triglycerides",
+          "predicted": "Triglycerides",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].result",
+          "group": "tests[].result",
+          "expected": 210,
+          "predicted": 210.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 150",
+          "predicted": "< 150",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[5].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].test_name",
+          "group": "tests[].test_name",
+          "expected": "Creatinine",
+          "predicted": "Creatinine",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].result",
+          "group": "tests[].result",
+          "expected": 0.9,
+          "predicted": 0.9,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].unit",
+          "group": "tests[].unit",
+          "expected": "mg/dL",
+          "predicted": "mg/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "0.7-1.3",
+          "predicted": "0.7-1.3",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[6].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].test_name",
+          "group": "tests[].test_name",
+          "expected": "Hemoglobin",
+          "predicted": "Hemoglobin",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].result",
+          "group": "tests[].result",
+          "expected": 12.1,
+          "predicted": 12.1,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].unit",
+          "group": "tests[].unit",
+          "expected": "g/dL",
+          "predicted": "g/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "13.0-17.0",
+          "predicted": "13.0-17.0",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_01",
+          "document_type": "lab_report",
+          "field": "tests[7].flag",
+          "group": "tests[].flag",
+          "expected": "low",
+          "predicted": "low",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "document": "lab_02",
+      "expected_type": "lab_report",
+      "predicted_type": "lab_report",
+      "type_confidence": 0.99,
+      "status": "evaluated",
+      "predates_validation": true,
+      "model_scores": [
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "lab_name",
+          "group": "lab_name",
+          "expected": "Mekong Clinical Laboratory",
+          "predicted": "Mekong Clinical Laboratory",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Le Thi Hoa",
+          "predicted": "Le Thi Hoa",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "date",
+          "group": "date",
+          "expected": {
+            "printed": "03/08/2024",
+            "iso": "2024-08-03"
+          },
+          "predicted": "03/08/2024",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].test_name",
+          "group": "tests[].test_name",
+          "expected": "White blood cells (WBC)",
+          "predicted": "White blood cells (WBC)",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].result",
+          "group": "tests[].result",
+          "expected": 11.8,
+          "predicted": 11.8,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].unit",
+          "group": "tests[].unit",
+          "expected": "x10^3/uL",
+          "predicted": "x10^3/uL",
+          "confidence": 0.98,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "4.0-10.0",
+          "predicted": "4.0-10.0",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].test_name",
+          "group": "tests[].test_name",
+          "expected": "Hemoglobin",
+          "predicted": "Hemoglobin",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].result",
+          "group": "tests[].result",
+          "expected": 11.2,
+          "predicted": 11.2,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].unit",
+          "group": "tests[].unit",
+          "expected": "g/dL",
+          "predicted": "g/dL",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "12.0-15.5",
+          "predicted": "12.0-15.5",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].flag",
+          "group": "tests[].flag",
+          "expected": "low",
+          "predicted": "low",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].test_name",
+          "group": "tests[].test_name",
+          "expected": "Platelets",
+          "predicted": "Platelets",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].result",
+          "group": "tests[].result",
+          "expected": 245,
+          "predicted": 245,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].unit",
+          "group": "tests[].unit",
+          "expected": "x10^3/uL",
+          "predicted": "x10^3/uL",
+          "confidence": 0.98,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "150-450",
+          "predicted": "150-450",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].test_name",
+          "group": "tests[].test_name",
+          "expected": "C-reactive protein (CRP)",
+          "predicted": "C-reactive protein (CRP)",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].result",
+          "group": "tests[].result",
+          "expected": 24,
+          "predicted": 24,
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].unit",
+          "group": "tests[].unit",
+          "expected": "mg/L",
+          "predicted": "mg/L",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 5",
+          "predicted": "< 5",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].test_name",
+          "group": "tests[].test_name",
+          "expected": "Urine protein",
+          "predicted": "Urine protein",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].result",
+          "group": "tests[].result",
+          "expected": "Negative",
+          "predicted": "Negative",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].unit",
+          "group": "tests[].unit",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "Negative",
+          "predicted": "Negative",
+          "confidence": 0.99,
+          "outcome": "correct"
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].flag",
+          "group": "tests[].flag",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null"
+        }
+      ],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": [
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "lab_name",
+          "group": "lab_name",
+          "expected": "Mekong Clinical Laboratory",
+          "predicted": "Mekong Clinical Laboratory",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "patient_name",
+          "group": "patient_name",
+          "expected": "Le Thi Hoa",
+          "predicted": "Le Thi Hoa",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "date",
+          "group": "date",
+          "expected": {
+            "printed": "03/08/2024",
+            "iso": "2024-08-03"
+          },
+          "predicted": "03/08/2024",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].test_name",
+          "group": "tests[].test_name",
+          "expected": "White blood cells (WBC)",
+          "predicted": "White blood cells (WBC)",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].result",
+          "group": "tests[].result",
+          "expected": 11.8,
+          "predicted": 11.8,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].unit",
+          "group": "tests[].unit",
+          "expected": "x10^3/uL",
+          "predicted": "x10^3/uL",
+          "confidence": 0.98,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "4.0-10.0",
+          "predicted": "4.0-10.0",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[0].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].test_name",
+          "group": "tests[].test_name",
+          "expected": "Hemoglobin",
+          "predicted": "Hemoglobin",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].result",
+          "group": "tests[].result",
+          "expected": 11.2,
+          "predicted": 11.2,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].unit",
+          "group": "tests[].unit",
+          "expected": "g/dL",
+          "predicted": "g/dL",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "12.0-15.5",
+          "predicted": "12.0-15.5",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[1].flag",
+          "group": "tests[].flag",
+          "expected": "low",
+          "predicted": "low",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].test_name",
+          "group": "tests[].test_name",
+          "expected": "Platelets",
+          "predicted": "Platelets",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].result",
+          "group": "tests[].result",
+          "expected": 245,
+          "predicted": 245.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].unit",
+          "group": "tests[].unit",
+          "expected": "x10^3/uL",
+          "predicted": "x10^3/uL",
+          "confidence": 0.98,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "150-450",
+          "predicted": "150-450",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[2].flag",
+          "group": "tests[].flag",
+          "expected": "normal",
+          "predicted": "normal",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].test_name",
+          "group": "tests[].test_name",
+          "expected": "C-reactive protein (CRP)",
+          "predicted": "C-reactive protein (CRP)",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].result",
+          "group": "tests[].result",
+          "expected": 24,
+          "predicted": 24.0,
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].unit",
+          "group": "tests[].unit",
+          "expected": "mg/L",
+          "predicted": "mg/L",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "< 5",
+          "predicted": "< 5",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[3].flag",
+          "group": "tests[].flag",
+          "expected": "high",
+          "predicted": "high",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].test_name",
+          "group": "tests[].test_name",
+          "expected": "Urine protein",
+          "predicted": "Urine protein",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].result",
+          "group": "tests[].result",
+          "expected": "Negative",
+          "predicted": "Negative",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].unit",
+          "group": "tests[].unit",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].reference_range",
+          "group": "tests[].reference_range",
+          "expected": "Negative",
+          "predicted": "Negative",
+          "confidence": 0.99,
+          "outcome": "correct",
+          "correct": true
+        },
+        {
+          "document": "lab_02",
+          "document_type": "lab_report",
+          "field": "tests[4].flag",
+          "group": "tests[].flag",
+          "expected": null,
+          "predicted": null,
+          "confidence": 0.0,
+          "outcome": "correct_null",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "document": "prescription_01",
+      "expected_type": "prescription",
+      "predicted_type": null,
+      "type_confidence": null,
+      "status": "not_run",
+      "predates_validation": false,
+      "model_scores": [],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": []
+    },
+    {
+      "document": "prescription_02",
+      "expected_type": "prescription",
+      "predicted_type": null,
+      "type_confidence": null,
+      "status": "not_run",
+      "predates_validation": false,
+      "model_scores": [],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": []
+    },
+    {
+      "document": "receipt_01",
+      "expected_type": "receipt",
+      "predicted_type": null,
+      "type_confidence": null,
+      "status": "not_run",
+      "predates_validation": false,
+      "model_scores": [],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": []
+    },
+    {
+      "document": "receipt_02",
+      "expected_type": "receipt",
+      "predicted_type": null,
+      "type_confidence": null,
+      "status": "not_run",
+      "predates_validation": false,
+      "model_scores": [],
+      "validation_expected": [
+        [
+          "grand_total",
+          "TOTAL_MISMATCH"
+        ]
+      ],
+      "validation_actual": [],
+      "fields": []
+    },
+    {
+      "document": "receipt_03",
+      "expected_type": "receipt",
+      "predicted_type": null,
+      "type_confidence": null,
+      "status": "not_run",
+      "predates_validation": false,
+      "model_scores": [],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": []
+    },
+    {
+      "document": "electricity_bill_01",
+      "expected_type": "unknown",
+      "predicted_type": null,
+      "type_confidence": null,
+      "status": "not_run",
+      "predates_validation": false,
+      "model_scores": [],
+      "validation_expected": [],
+      "validation_actual": [],
+      "fields": []
+    }
+  ]
+}

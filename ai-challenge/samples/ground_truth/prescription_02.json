@@ -1,0 +1,53 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "prescription_02",
+  "source_file": "documents/prescription_02.png",
+  "document_type": "prescription",
+  "fields": {
+    "doctor_name": "Dr. Hoang Duc Anh",
+    "patient_name": "Vu Thanh Tung",
+    "date": {
+      "printed": "22/09/2024",
+      "iso": "2024-09-22"
+    },
+    "medications": [
+      {
+        "name": "Omeprazole",
+        "dosage": "20 mg",
+        "frequency": "1 capsule once daily before breakfast",
+        "duration": "14 days",
+        "quantity": "14 capsules"
+      },
+      {
+        "name": "Salbutamol inhaler",
+        "dosage": "100 mcg/puff",
+        "frequency": "2 puffs as needed for wheezing",
+        "duration": null,
+        "quantity": null
+      },
+      {
+        "name": "Prednisolone",
+        "dosage": "5 mg",
+        "frequency": "4 tablets once daily after breakfast",
+        "duration": "5 days",
+        "quantity": "20 tablets"
+      }
+    ]
+  },
+  "absent_fields": [
+    "medications[1].duration",
+    "medications[1].quantity"
+  ],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "png",
+    "pages": 1,
+    "scanned": true,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Scanned image: rotated, noisy PNG with no text layer.",
+      "Missing fields: the salbutamol inhaler (as-needed) has no duration and no quantity, so both must be null."
+    ]
+  }
+}

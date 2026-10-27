@@ -1,0 +1,116 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>prescription_02</title>
+<style>
+  /* A4. PDFs use @page margins; PNG "scans" have no pages, so .page pads instead. */
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  :root { --accent: #7a1f5c; --ink: #1c2229; --muted: #5d6874; --rule: #c9d0d8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body {
+    font-family: "Segoe UI", "DejaVu Sans", "Noto Sans", Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.4; color: var(--ink);
+  }
+  body.scan { width: 210mm; }
+  body.scan .page { padding: 14mm; }
+  h1, h2, h3 { margin: 0; }
+  .muted { color: var(--muted); font-size: 9pt; }
+  .hdr { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); }
+  .logo {
+    width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16pt; flex: none;
+  }
+  .org { flex: 1; }
+  .org-name { font-size: 15pt; font-weight: 700; }
+  .doc-title { font-size: 17pt; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-align: right; }
+  .doc-title.center { text-align: center; margin: 14px 0 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  table.meta { margin: 12px 0; }
+  table.meta th { text-align: left; color: var(--muted); font-weight: 600; width: 18%; padding: 3px 6px 3px 0; vertical-align: top; }
+  table.meta td { padding: 3px 12px 3px 0; vertical-align: top; }
+  table.grid th { background: #eef1f4; text-align: left; font-size: 9pt; padding: 6px; border-bottom: 1.5px solid var(--ink); }
+  table.grid td { padding: 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .num { text-align: right; white-space: nowrap; }
+  .section { margin-top: 14px; }
+  .section h3 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px;
+  }
+  .section p { margin: 4px 0; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  .sign { margin-top: 28px; display: flex; justify-content: flex-end; }
+  .sign-box { width: 46%; text-align: center; }
+  .sign-line { border-bottom: 1px dotted var(--ink); height: 34px; margin: 4px 0; }
+  .footer { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 6px; }
+  .page-break { break-before: page; }
+  
+  .rx { font-family: Georgia, "DejaVu Serif", serif; font-size: 30pt; font-weight: 700; color: var(--accent); margin: 10px 0 2px; }
+  .doctor { text-align: right; }
+  .doctor .name { font-size: 13pt; font-weight: 700; }
+
+</style>
+</head>
+<body class="scan">
+<div class="page">
+
+<header class="hdr">
+  <div class="logo">AK</div>
+  <div class="org">
+    <div class="org-name">An Khang Medical Clinic</div>
+    <div class="muted">18 Tran Hung Dao Street, Hoan Kiem District, Hanoi, Vietnam</div>
+    <div class="muted">Tel. +84 24 5555 0018</div>
+  </div>
+  <div class="doctor">
+    <div class="name">Dr. Hoang Duc Anh</div>
+    <div class="muted">Internal Medicine - Respiratory</div>
+    <div class="muted">License no. CCHN 004521/HNO</div>
+  </div>
+</header>
+
+<table class="meta">
+  <tr><th>Patient</th><td><b>Vu Thanh Tung</b></td><th>Date</th><td>22/09/2024</td></tr>
+  <tr><th>Age / Sex</th><td>41 y / Male</td><th>Weight</th><td>68 kg</td></tr>
+  <tr><th>Diagnosis</th><td colspan="3">Acute exacerbation of mild asthma; gastritis</td></tr>
+  <tr><th>Allergies</th><td colspan="3">Penicillin (rash)</td></tr>
+</table>
+
+<div class="rx">&#8478;</div>
+<table class="grid">
+  <thead><tr><th>#</th><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Duration</th><th>Quantity</th></tr></thead>
+  <tbody>
+  
+    <tr>
+      <td>1</td><td><b>Omeprazole</b></td><td>20 mg</td>
+      <td>1 capsule once daily before breakfast</td><td>14 days</td><td>14 capsules</td>
+    </tr>
+  
+    <tr>
+      <td>2</td><td><b>Salbutamol inhaler</b></td><td>100 mcg/puff</td>
+      <td>2 puffs as needed for wheezing</td><td></td><td></td>
+    </tr>
+  
+    <tr>
+      <td>3</td><td><b>Prednisolone</b></td><td>5 mg</td>
+      <td>4 tablets once daily after breakfast</td><td>5 days</td><td>20 tablets</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<div class="section"><h3>Advice</h3><p>Rinse mouth after using the inhaler. Avoid smoke and cold air. Come back immediately if breathing gets worse or the inhaler is needed more than every 4 hours.</p></div>
+
+<div class="sign">
+  <div class="sign-box">
+    <div class="sign-line"></div>
+    <div>Dr. Hoang Duc Anh</div>
+    <div class="muted">Prescribing physician</div>
+  </div>
+</div>
+<div class="footer muted">Bring this prescription to your follow-up visit.</div>
+
+</div>
+</body>
+</html>

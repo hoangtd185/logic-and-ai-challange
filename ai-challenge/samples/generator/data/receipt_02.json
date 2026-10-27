@@ -1,0 +1,47 @@
+{
+  "id": "receipt_02",
+  "type": "receipt",
+  "template": "receipt.html.j2",
+  "output": {"format": "pdf", "pages": 1},
+  "hard_cases": [
+    "Missing field: unpaid invoice with no payment section, so payment_method must be null.",
+    "Total mismatch: line items sum to 22,950.00 but the printed total is 24,950.00 (8.0% off), so TOTAL_MISMATCH is expected.",
+    "Distractor date: a payment due date is printed next to the invoice date."
+  ],
+  "expected_validation_errors": [{"field": "grand_total", "code": "TOTAL_MISMATCH"}],
+  "doc": {
+    "fields": {
+      "hospital_name": "Lotus Bay International Hospital",
+      "patient_name": "Ms. Emily Carter",
+      "date": "05/04/2024",
+      "items": [
+        {"description": "Emergency room service fee", "quantity": 1, "unit_price": 3500.00, "total": 3500.00},
+        {"description": "Wound suturing (laceration > 5 cm)", "quantity": 1, "unit_price": 6800.00, "total": 6800.00},
+        {"description": "Tetanus toxoid vaccine", "quantity": 1, "unit_price": 900.00, "total": 900.00},
+        {"description": "Sterile dressing set", "quantity": 3, "unit_price": 450.00, "total": 1350.00},
+        {"description": "IV fluid - Normal saline 1000 ml", "quantity": 2, "unit_price": 1200.00, "total": 2400.00},
+        {"description": "Observation ward (per night)", "quantity": 1, "unit_price": 8000.00, "total": 8000.00}
+      ],
+      "grand_total": 24950.00,
+      "payment_method": null
+    },
+    "extra": {
+      "accent": "#8a3b12",
+      "logo_initials": "LB",
+      "address": "21/7 Patong Beach Road, Kathu, Phuket 83150, Thailand",
+      "phone": "+66 76 555 0123",
+      "tax_id": "0835561004417",
+      "doc_title": "INVOICE",
+      "number_label": "Invoice no.",
+      "number": "LBH-INV-24-01962",
+      "hn": "HN 24-077310",
+      "department": "Emergency Department",
+      "due_date": "05/05/2024",
+      "currency": "THB",
+      "money_style": "comma",
+      "total_label": "Total amount due",
+      "unpaid_notice": "This invoice has not been settled. Please quote the invoice number when making payment. Itemised charges are subject to final review by the billing department.",
+      "footer": "Billing enquiries: billing@lotusbay-hospital.example - Mon to Fri, 08:00-17:00."
+    }
+  }
+}

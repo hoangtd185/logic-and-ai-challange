@@ -1,0 +1,46 @@
+{
+  "id": "receipt_03",
+  "type": "receipt",
+  "template": "receipt.html.j2",
+  "output": {"format": "png", "scan": {"rotate": -1.6, "seed": 303}},
+  "hard_cases": [
+    "Scanned image: rotated, noisy PNG with no text layer.",
+    "Under-threshold mismatch: line items sum to 2,920,000 but the printed total is 3,010,000 (3.0% off), so TOTAL_MISMATCH must NOT be raised.",
+    "VND amounts with no decimals."
+  ],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {
+      "hospital_name": "Hoa Sen General Hospital",
+      "patient_name": "Tran Minh Khoa",
+      "date": "18/06/2024",
+      "items": [
+        {"description": "Specialist consultation - Gastroenterology", "quantity": 1, "unit_price": 500000, "total": 500000},
+        {"description": "Abdominal ultrasound", "quantity": 1, "unit_price": 650000, "total": 650000},
+        {"description": "Blood chemistry panel", "quantity": 1, "unit_price": 1200000, "total": 1200000},
+        {"description": "Omeprazole 20 mg capsule", "quantity": 28, "unit_price": 15000, "total": 420000},
+        {"description": "Domperidone 10 mg tablet", "quantity": 30, "unit_price": 5000, "total": 150000}
+      ],
+      "grand_total": 3010000,
+      "payment_method": "Cash"
+    },
+    "extra": {
+      "accent": "#1f4e9c",
+      "logo_initials": "HS",
+      "address": "215 Nguyen Van Cu Street, District 5, Ho Chi Minh City, Vietnam",
+      "phone": "+84 28 5555 0215",
+      "tax_id": "0312345678",
+      "doc_title": "RECEIPT",
+      "number_label": "Receipt no.",
+      "number": "HS-0618-04412",
+      "hn": "PID 2406-118902",
+      "department": "Outpatient - Gastroenterology",
+      "visit_type": "Outpatient",
+      "currency": "VND",
+      "money_style": "comma0",
+      "total_label": "Total paid",
+      "cashier": "Counter 2 - Le Thu Trang",
+      "footer": "Keep this receipt for insurance reimbursement. VAT invoice issued on request within the same day."
+    }
+  }
+}

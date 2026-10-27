@@ -1,0 +1,35 @@
+{
+  "id": "prescription_01",
+  "type": "prescription",
+  "template": "prescription.html.j2",
+  "output": {"format": "pdf", "pages": 1},
+  "hard_cases": ["Clean baseline: 3 fully specified medications."],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {
+      "doctor_name": "Dr. Natthapong Srisuk",
+      "patient_name": "Ms. Pimchanok Thongdee",
+      "date": "14/09/2024",
+      "medications": [
+        {"name": "Amoxicillin/Clavulanate", "dosage": "875/125 mg", "frequency": "1 tablet twice daily", "duration": "7 days", "quantity": "14 tablets"},
+        {"name": "Paracetamol", "dosage": "500 mg", "frequency": "1-2 tablets every 6 hours as needed", "duration": "5 days", "quantity": "20 tablets"},
+        {"name": "Cetirizine", "dosage": "10 mg", "frequency": "1 tablet once daily at bedtime", "duration": "10 days", "quantity": "10 tablets"}
+      ]
+    },
+    "extra": {
+      "accent": "#1d5b8f",
+      "logo_initials": "SF",
+      "clinic_name": "Sukhumvit Family Clinic",
+      "address": "333 Sukhumvit Soi 39, Khlong Tan Nuea, Watthana, Bangkok 10110, Thailand",
+      "phone": "+66 2 555 0339",
+      "specialty": "Family Medicine",
+      "license_no": "MD 41872",
+      "age_sex": "29 y / Female",
+      "weight": "52 kg",
+      "clinical_diagnosis": "Acute bacterial sinusitis; allergic rhinitis",
+      "allergies": "No known drug allergies",
+      "advice": "Finish the full antibiotic course even if symptoms improve. Saline nasal rinse twice daily. Return if fever persists beyond 3 days.",
+      "footer": "Prescription valid for 7 days from the date of issue."
+    }
+  }
+}

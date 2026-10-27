@@ -1,0 +1,67 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "lab_02",
+  "source_file": "documents/lab_02.png",
+  "document_type": "lab_report",
+  "fields": {
+    "lab_name": "Mekong Clinical Laboratory",
+    "patient_name": "Le Thi Hoa",
+    "date": {
+      "printed": "03/08/2024",
+      "iso": "2024-08-03"
+    },
+    "tests": [
+      {
+        "test_name": "White blood cells (WBC)",
+        "result": 11.8,
+        "unit": "x10^3/uL",
+        "reference_range": "4.0-10.0",
+        "flag": "high"
+      },
+      {
+        "test_name": "Hemoglobin",
+        "result": 11.2,
+        "unit": "g/dL",
+        "reference_range": "12.0-15.5",
+        "flag": "low"
+      },
+      {
+        "test_name": "Platelets",
+        "result": 245,
+        "unit": "x10^3/uL",
+        "reference_range": "150-450",
+        "flag": "normal"
+      },
+      {
+        "test_name": "C-reactive protein (CRP)",
+        "result": 24,
+        "unit": "mg/L",
+        "reference_range": "< 5",
+        "flag": "high"
+      },
+      {
+        "test_name": "Urine protein",
+        "result": "Negative",
+        "unit": null,
+        "reference_range": "Negative",
+        "flag": null
+      }
+    ]
+  },
+  "absent_fields": [
+    "tests[4].unit",
+    "tests[4].flag"
+  ],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "png",
+    "pages": 1,
+    "scanned": true,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Scanned image: rotated, noisy PNG with no text layer.",
+      "Missing fields: the qualitative urine protein test has no unit and no printed flag, so both must be null. The flag must not be derived from the reference range."
+    ]
+  }
+}

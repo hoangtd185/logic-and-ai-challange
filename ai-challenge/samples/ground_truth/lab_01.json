@@ -1,0 +1,84 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "lab_01",
+  "source_file": "documents/lab_01.pdf",
+  "document_type": "lab_report",
+  "fields": {
+    "lab_name": "Silom Diagnostic Laboratory",
+    "patient_name": "Mr. Kittisak Boonmee",
+    "date": {
+      "printed": "20/07/2024",
+      "iso": "2024-07-20"
+    },
+    "tests": [
+      {
+        "test_name": "Fasting plasma glucose",
+        "result": 126,
+        "unit": "mg/dL",
+        "reference_range": "70-99",
+        "flag": "high"
+      },
+      {
+        "test_name": "HbA1c",
+        "result": 6.9,
+        "unit": "%",
+        "reference_range": "4.0-5.6",
+        "flag": "high"
+      },
+      {
+        "test_name": "Total cholesterol",
+        "result": 182,
+        "unit": "mg/dL",
+        "reference_range": "< 200",
+        "flag": "normal"
+      },
+      {
+        "test_name": "LDL cholesterol",
+        "result": 118,
+        "unit": "mg/dL",
+        "reference_range": "< 130",
+        "flag": "normal"
+      },
+      {
+        "test_name": "HDL cholesterol",
+        "result": 36,
+        "unit": "mg/dL",
+        "reference_range": "> 40",
+        "flag": "low"
+      },
+      {
+        "test_name": "Triglycerides",
+        "result": 210,
+        "unit": "mg/dL",
+        "reference_range": "< 150",
+        "flag": "high"
+      },
+      {
+        "test_name": "Creatinine",
+        "result": 0.9,
+        "unit": "mg/dL",
+        "reference_range": "0.7-1.3",
+        "flag": "normal"
+      },
+      {
+        "test_name": "Hemoglobin",
+        "result": 12.1,
+        "unit": "g/dL",
+        "reference_range": "13.0-17.0",
+        "flag": "low"
+      }
+    ]
+  },
+  "absent_fields": [],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Clean baseline: 8 tests in two panels with printed H/L/N flags, including both high and low results."
+    ]
+  }
+}

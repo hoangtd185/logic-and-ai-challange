@@ -1,0 +1,44 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "discharge_01",
+  "source_file": "documents/discharge_01.pdf",
+  "document_type": "discharge_summary",
+  "fields": {
+    "hospital_name": "Chao Phraya Medical Center",
+    "patient_name": "Mrs. Somsri Chaiyaporn",
+    "admission_date": {
+      "printed": "02/01/2024",
+      "iso": "2024-01-02"
+    },
+    "discharge_date": {
+      "printed": "09/01/2024",
+      "iso": "2024-01-09"
+    },
+    "diagnosis": {
+      "primary": "Community-acquired pneumonia, right lower lobe",
+      "secondary": [
+        "Type 2 diabetes mellitus",
+        "Essential hypertension"
+      ]
+    },
+    "procedures_performed": [
+      "Chest X-ray",
+      "Bronchoscopy with bronchoalveolar lavage"
+    ],
+    "attending_physician": "Dr. Pichit Rattanakorn",
+    "discharge_instructions": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs."
+  },
+  "absent_fields": [],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "pdf",
+    "pages": 2,
+    "scanned": false,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Clean baseline: primary + 2 secondary diagnoses and 2 procedures.",
+      "Two pages: discharge instructions and the physician sign-off are on page 2."
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "receipt_01",
+  "source_file": "documents/receipt_01.pdf",
+  "document_type": "receipt",
+  "fields": {
+    "hospital_name": "Siam Riverside Hospital",
+    "patient_name": "Mr. Anan Wongsakul",
+    "date": {
+      "printed": "12/03/2024",
+      "iso": "2024-03-12"
+    },
+    "items": [
+      {
+        "description": "Consultation - Internal Medicine",
+        "quantity": 1,
+        "unit_price": 1200.0,
+        "total": 1200.0
+      },
+      {
+        "description": "Complete Blood Count (CBC)",
+        "quantity": 1,
+        "unit_price": 450.0,
+        "total": 450.0
+      },
+      {
+        "description": "Chest X-ray (PA view)",
+        "quantity": 1,
+        "unit_price": 1350.0,
+        "total": 1350.0
+      },
+      {
+        "description": "Amoxicillin 500 mg capsule",
+        "quantity": 21,
+        "unit_price": 12.0,
+        "total": 252.0
+      }
+    ],
+    "grand_total": 3252.0,
+    "payment_method": "Credit card"
+  },
+  "absent_fields": [],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "en",
+    "currency": "THB",
+    "hard_cases": [
+      "Clean baseline: card payment, line items sum exactly to the grand total."
+    ]
+  }
+}

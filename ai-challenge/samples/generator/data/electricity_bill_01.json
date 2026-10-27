@@ -1,0 +1,41 @@
+{
+  "id": "electricity_bill_01",
+  "type": "unknown",
+  "negative": true,
+  "template": "utility_bill.html.j2",
+  "output": {"format": "pdf", "pages": 1},
+  "hard_cases": [
+    "Non-medical document: must be classified as 'unknown' with every field null.",
+    "Tempting look-alike: it has a customer name, a bill date, line charges, an amount due and a payment method, all of which could be mistaken for receipt fields."
+  ],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {},
+    "extra": {
+      "accent": "#c77700",
+      "logo_initials": "LE",
+      "company": "Lumen Electric Utility Co.",
+      "address": "500 Rama IV Road, Pathum Wan, Bangkok 10330, Thailand",
+      "phone": "1129",
+      "customer": "Ms. Chalida Prasert",
+      "account_no": "020-0045-88713",
+      "service_address": "77/14 Soi Ari 2, Phaya Thai, Bangkok 10400",
+      "bill_date": "01/10/2024",
+      "meter_no": "M-55120873",
+      "period": "01/09/2024 - 30/09/2024",
+      "amount_due": "1,845.32 THB",
+      "due_date": "15/10/2024",
+      "payment_method": "Direct debit - Bank account ending 3302",
+      "charges": [
+        ["Energy charge (first 150 kWh)", "150", "3.2484", "487.26"],
+        ["Energy charge (151-400 kWh)", "212", "4.2218", "895.02"],
+        ["Fuel adjustment (Ft)", "362", "0.3972", "143.79"],
+        ["Service charge", "1", "38.22", "38.22"],
+        ["VAT 7%", "", "", "109.49"],
+        ["Late payment carried forward", "", "", "171.54"]
+      ],
+      "history": [["Jun 2024", 401], ["Jul 2024", 388], ["Aug 2024", 375], ["Sep 2024", 362]],
+      "footer": "Pay by the due date to avoid a disconnection notice. This is not a tax invoice."
+    }
+  }
+}

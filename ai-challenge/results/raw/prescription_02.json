@@ -1,0 +1,298 @@
+{
+  "document": "prescription_02.png",
+  "sha256": "d28d20faed518378055c5fe5dbd1a98ec692484ad2b8ea6010131cc49160b69d",
+  "source_mime_type": "image/png",
+  "pages": 1,
+  "has_text_layer": false,
+  "model": "gemini-3.6-flash",
+  "input_notes": [
+    "re-encoded PNG 952 KB → JPEG 167 KB"
+  ],
+  "classification": {
+    "raw": {
+      "evidence": "Header features the 'Rx' symbol, table listing medications (Omeprazole, Salbutamol inhaler, Prednisolone) with Dosage, Frequency, Duration, and Quantity, signed by 'Dr. Hoang Duc Anh Prescribing physician'.",
+      "document_type": "prescription",
+      "confidence": 0.99
+    },
+    "seconds": 0.02,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 47.11,
+        "attempts": [
+          {
+            "seconds": 47.11,
+            "http_requests": 1
+          }
+        ],
+        "http_requests": 1,
+        "request_bytes": 231790,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1518,
+          "total_output_tokens": 79,
+          "total_thought_tokens": 0,
+          "total_tokens": 1597,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "extraction": {
+    "raw": {
+      "doctor_name": {
+        "value": "Dr. Hoang Duc Anh",
+        "confidence": 0.99
+      },
+      "patient_name": {
+        "value": "Vu Thanh Tung",
+        "confidence": 0.99
+      },
+      "date": {
+        "value": "22/09/2024",
+        "confidence": 0.99
+      },
+      "medications": {
+        "value": [
+          {
+            "name": {
+              "value": "Omeprazole",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "20 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "1 capsule once daily before breakfast",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "14 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "14 capsules",
+              "confidence": 0.99
+            }
+          },
+          {
+            "name": {
+              "value": "Salbutamol inhaler",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "100 mcg/puff",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "2 puffs as needed for wheezing",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": null,
+              "confidence": 0.0
+            },
+            "quantity": {
+              "value": null,
+              "confidence": 0.0
+            }
+          },
+          {
+            "name": {
+              "value": "Prednisolone",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "5 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "4 tablets once daily after breakfast",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "5 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "20 tablets",
+              "confidence": 0.99
+            }
+          }
+        ],
+        "confidence": 0.99
+      }
+    },
+    "adjustments": [],
+    "seconds": 0.03,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 31.93,
+        "attempts": [
+          {
+            "seconds": 31.93,
+            "http_requests": 1
+          }
+        ],
+        "http_requests": 1,
+        "request_bytes": 234472,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1881,
+          "total_output_tokens": 591,
+          "total_thought_tokens": 0,
+          "total_tokens": 2472,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "second_reading": {
+    "raw": {
+      "doctor_name": {
+        "value": "Dr. Hoang Duc Anh",
+        "confidence": 0.99
+      },
+      "patient_name": {
+        "value": "Vu Thanh Tung",
+        "confidence": 0.99
+      },
+      "date": {
+        "value": "22/09/2024",
+        "confidence": 0.99
+      },
+      "medications": {
+        "value": [
+          {
+            "name": {
+              "value": "Omeprazole",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "20 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "1 capsule once daily before breakfast",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "14 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "14 capsules",
+              "confidence": 0.99
+            }
+          },
+          {
+            "name": {
+              "value": "Salbutamol inhaler",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "100 mcg/puff",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "2 puffs as needed for wheezing",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": null,
+              "confidence": 0.0
+            },
+            "quantity": {
+              "value": null,
+              "confidence": 0.0
+            }
+          },
+          {
+            "name": {
+              "value": "Prednisolone",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "5 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "4 tablets once daily after breakfast",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "5 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "20 tablets",
+              "confidence": 0.99
+            }
+          }
+        ],
+        "confidence": 0.98
+      }
+    },
+    "adjustments": [],
+    "seconds": 0.04,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 89.57,
+        "attempts": [
+          {
+            "seconds": 89.57,
+            "http_requests": 2
+          }
+        ],
+        "http_requests": 2,
+        "request_bytes": 234663,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1920,
+          "total_output_tokens": 591,
+          "total_thought_tokens": 0,
+          "total_tokens": 2511,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "validation": [],
+  "confidence": {
+    "method": "double_reading",
+    "adjustments": [],
+    "checked_fields": 19,
+    "notes": []
+  },
+  "seconds": 0.1
+}

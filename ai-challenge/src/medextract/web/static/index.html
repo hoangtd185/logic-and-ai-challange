@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medical Document Extractor</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --panel: #ffffff; --ink: #1b2129; --muted: #5f6b78; --line: #dde2e8;
+    --accent: #1f5fbf; --accent-ink: #ffffff;
+    --low-bg: #fff3d6; --low-line: #e2a72e; --low-ink: #7a5300;
+    --missing-bg: #eef0f3; --missing-ink: #6b7480;
+    --err-bg: #fde8e7; --err-line: #d6453d; --err-ink: #8f1d17;
+    --warn-bg: #fff3d6; --warn-line: #e2a72e; --warn-ink: #7a5300;
+    --ok-ink: #1d7a46; --ok-bg: #e3f4ea;
+    --code-bg: #fbfcfd; --tok-key: #1f4f8f; --tok-str: #2f6b2f; --tok-num: #8a3fb0; --tok-lit: #a3521b;
+    --radius: 10px;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12161b; --panel: #1a2027; --ink: #e5e9ee; --muted: #9aa6b3; --line: #2c343e;
+      --accent: #5b9bf0; --accent-ink: #0d1117;
+      --low-bg: #3a2d0e; --low-line: #c99526; --low-ink: #f3d48a;
+      --missing-bg: #232a32; --missing-ink: #8d98a5;
+      --err-bg: #3b1715; --err-line: #e0625a; --err-ink: #f6b4af;
+      --warn-bg: #3a2d0e; --warn-line: #c99526; --warn-ink: #f3d48a;
+      --ok-ink: #7fd3a1; --ok-bg: #16301f;
+      --code-bg: #151a20; --tok-key: #8cb8f2; --tok-str: #9fd39a; --tok-num: #d4a5f0; --tok-lit: #f0b285;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background: var(--panel); border-bottom: 1px solid var(--line); padding: 14px 24px; }
+  header h1 { margin: 0; font-size: 18px; }
+  header p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+  main { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 20px; padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
+  main > section { min-width: 0; }  /* let wide JSON scroll inside its box instead of widening the page */
+  @media (max-width: 860px) {
+    main { grid-template-columns: 1fr; padding: 16px; } header { padding: 12px 16px; }
+    .preview iframe { height: 320px; } .preview img { max-height: 320px; object-fit: contain; }
+  }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; min-width: 0; }
+  .panel + .panel { margin-top: 16px; }
+  h2 { margin: 0 0 10px; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+  .drop {
+    display: block;
+    border: 2px dashed var(--line); border-radius: var(--radius); padding: 22px 14px; text-align: center;
+    cursor: pointer; transition: border-color .15s, background .15s;
+  }
+  .drop:hover, .drop.over { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+  .drop strong { display: block; margin-bottom: 4px; }
+  .drop span { color: var(--muted); font-size: 13px; }
+  .drop input { display: none; }
+  .status { margin-top: 12px; font-size: 14px; color: var(--muted); min-height: 1.5em; display: flex; align-items: center; gap: 8px; }
+  .spinner { width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; flex: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .preview { margin-top: 12px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--code-bg); }
+  .preview img { display: block; width: 100%; height: auto; }
+  .preview iframe { display: block; width: 100%; height: 520px; border: 0; }
+
+  .empty { color: var(--muted); text-align: center; padding: 48px 12px; }
+  .doc-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 16px; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-weight: 650; font-size: 15px; }
+  .badge.unknown { background: var(--missing-bg); color: var(--missing-ink); border: 1px solid var(--line); }
+  .meta { color: var(--muted); font-size: 13px; }
+  .evidence { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+
+  .issues { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .issue { border-left: 4px solid var(--err-line); background: var(--err-bg); color: var(--err-ink); padding: 8px 12px; border-radius: 6px; font-size: 14px; }
+  .issue.warning { border-color: var(--warn-line); background: var(--warn-bg); color: var(--warn-ink); }
+  .issue code { font-family: var(--mono); font-size: 12.5px; font-weight: 650; }
+  .issue .field { font-family: var(--mono); font-size: 12.5px; opacity: .85; }
+  .no-issues { color: var(--ok-ink); background: var(--ok-bg); padding: 8px 12px; border-radius: 6px; font-size: 14px; }
+
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
+  .toolbar .spacer { flex: 1; }
+  .legend { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid; }
+  .swatch.low { background: var(--low-bg); border-color: var(--low-line); }
+  .swatch.missing { background: var(--missing-bg); border-color: var(--line); }
+  button { font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  label.check { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+
+  pre.json {
+    margin: 0; padding: 12px 0; background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px;
+    font: 12.5px/1.55 var(--mono); overflow-x: auto; tab-size: 2;
+  }
+  pre.json .row { display: block; padding: 0 14px; white-space: pre; }
+  .k { color: var(--tok-key); } .s { color: var(--tok-str); } .n { color: var(--tok-num); } .l { color: var(--tok-lit); }
+  .fld { display: block; border-left: 3px solid transparent; }
+  .fld.low { background: var(--low-bg); border-left-color: var(--low-line); }
+  /* a list or object field (receipt items, diagnosis): mark its first line, not every row inside */
+  .fld.low-container { border-left-color: var(--low-line); }
+  .fld.low-container > .row:first-child, .fld.low-container > .note { background: var(--low-bg); }
+  .show-missing .fld.missing { background: var(--missing-bg); border-left-color: var(--line); }
+  .note { display: block; padding: 0 14px 2px; color: var(--low-ink); font-family: system-ui, sans-serif; font-size: 12.5px; white-space: normal; user-select: none; }
+  .note b { font-weight: 650; }
+  .error-box { border-left: 4px solid var(--err-line); background: var(--err-bg); color: var(--err-ink); padding: 10px 12px; border-radius: 6px; white-space: pre-wrap; word-break: break-word; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Medical Document Extractor</h1>
+  <p>Upload a receipt, discharge summary, lab report or prescription (PDF, PNG, JPEG or WebP, up to 15&nbsp;MB).</p>
+</header>
+
+<main>
+  <section>
+    <div class="panel">
+      <h2>Document</h2>
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp">
+        <strong>Choose a file or drop it here</strong>
+        <span>It is sent to the extractor as soon as you pick it.</span>
+      </label>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+      <div class="preview hidden" id="preview"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel" id="placeholder">
+      <div class="empty">The extraction result will appear here.</div>
+    </div>
+
+    <div id="result" class="hidden">
+      <div class="panel">
+        <div class="doc-head">
+          <span class="badge" id="doc-type"></span>
+          <span class="meta" id="doc-meta"></span>
+        </div>
+        <p class="evidence" id="evidence"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Validation</h2>
+        <div id="issues"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Extracted JSON</h2>
+        <div class="toolbar">
+          <span class="legend"><span class="swatch low"></span><span id="low-label">Confidence below 0.6</span></span>
+          <label class="check"><input type="checkbox" id="show-missing"> <span class="swatch missing"></span> Highlight fields not found (null)</label>
+          <span class="spacer"></span>
+          <button type="button" id="copy">Copy JSON</button>
+          <button type="button" id="download">Download</button>
+        </div>
+        <pre class="json" id="json"></pre>
+      </div>
+    </div>
+
+    <div class="panel hidden" id="error-panel">
+      <h2>Something went wrong</h2>
+      <div class="error-box" id="error"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  "use strict";
+  const MAX_BYTES = 15 * 1024 * 1024;
+  const TYPE_LABELS = {
+    receipt: "Receipt / invoice",
+    discharge_summary: "Discharge summary",
+    lab_report: "Lab report",
+    prescription: "Prescription",
+    unknown: "Unknown: not a supported medical document",
+  };
+  const CHECK_LABELS = {
+    text_layer: "checked against the PDF text layer",
+    double_reading: "checked by two independent readings",
+    model_only: "model confidence only (nothing to check against)",
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  };
+
+  let current = null;     // last response, for copy / download
+  let previewUrl = null;
+  let timer = null;
+
+  // --- upload -------------------------------------------------------------------------
+  const drop = $("drop"), input = $("file");
+  input.addEventListener("change", () => input.files[0] && upload(input.files[0]));
+  ["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+  ["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+  drop.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) upload(f); });
+
+  async function upload(file) {
+    hide("error-panel");
+    if (file.size > MAX_BYTES) return showError(`${file.name} is larger than 15 MB.`);
+    showPreview(file);
+    setBusy(true, file.name);
+    const form = new FormData();
+    form.append("file", file, file.name);
+    try {
+      const response = await fetch("/api/extract", { method: "POST", body: form });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(body.detail || `Server returned ${response.status}.`);
+      render(body);
+    } catch (err) {
+      showError(err.message || String(err));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function setBusy(busy, name) {
+    const status = $("status");
+    clearInterval(timer);
+    input.disabled = busy;
+    status.replaceChildren();
+    if (!busy) return;
+    const started = Date.now();
+    const text = el("span");
+    status.append(el("span", "spinner"), text);
+    const tick = () => { text.textContent = `Reading ${name}… ${Math.round((Date.now() - started) / 1000)} s (usually 20–60 s)`; };
+    tick();
+    timer = setInterval(tick, 1000);
+  }
+
+  function showPreview(file) {
+    const box = $("preview");
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = URL.createObjectURL(file);
+    const isPdf = file.type === "application/pdf" || /\.pdf$/i.test(file.name);
+    const node = isPdf ? Object.assign(el("iframe"), { src: previewUrl, title: file.name })
+                       : Object.assign(el("img"), { src: previewUrl, alt: file.name });
+    box.replaceChildren(node);
+    show("preview");
+  }
+
+  function showError(message) {
+    hide("result");
+    hide("placeholder");
+    $("error").textContent = message;
+    show("error-panel");
+  }
+
+  // --- result ---------------------------------------------------------------------------
+  function render(data) {
+    current = data;
+    const { result, meta } = data;
+    const threshold = meta.low_confidence_threshold ?? 0.6;
+
+    const badge = $("doc-type");
+    badge.textContent = TYPE_LABELS[result.document_type] || result.document_type;
+    badge.classList.toggle("unknown", result.document_type === "unknown");
+
+    const metaParts = [
+      `classification confidence ${pct(result.confidence)}`,
+      meta.pages ? `${meta.pages} page${meta.pages > 1 ? "s" : ""}` : null,
+      CHECK_LABELS[meta.confidence_check],
+      meta.seconds != null ? (meta.from_cache ? "from cache" : `${meta.seconds.toFixed(1)} s`) : null,
+    ].filter(Boolean);
+    $("doc-meta").textContent = metaParts.join(" · ");
+    $("evidence").textContent = meta.classification_evidence ? `Why: ${meta.classification_evidence}` : "";
+
+    renderIssues(result.validation_errors || []);
+
+    $("low-label").textContent = `Confidence below ${threshold}`;
+    const pre = $("json");
+    pre.replaceChildren();
+    const counts = { low: 0, missing: 0 };
+    printJson(pre, result, { threshold, lowered: meta.lowered || {}, counts });
+    $("low-label").textContent = `Confidence below ${threshold} (${counts.low})`;
+
+    hide("placeholder");
+    hide("error-panel");
+    show("result");
+  }
+
+  function renderIssues(issues) {
+    const box = $("issues");
+    if (!issues.length) {
+      box.replaceChildren(el("div", "no-issues", "No validation errors."));
+      return;
+    }
+    const list = el("ul", "issues");
+    const order = { error: 0, warning: 1 };
+    [...issues].sort((a, b) => (order[a.severity] ?? 2) - (order[b.severity] ?? 2)).forEach((issue) => {
+      const item = el("li", `issue ${issue.severity === "warning" ? "warning" : ""}`);
+      item.append(el("code", "", issue.code), document.createTextNode(" on "), el("span", "field", issue.field),
+                  document.createTextNode(`: ${issue.message}`));
+      list.append(item);
+    });
+    box.replaceChildren(list);
+  }
+
+  // --- JSON printer with field highlighting ------------------------------------------------
+  // Prints the envelope as indented JSON. Every {value, confidence} object inside "fields"
+  // becomes a block, highlighted when its value is present and confidence < threshold,
+  // with a note explaining any confidence the pipeline lowered.
+  const isField = (v) => v && typeof v === "object" && !Array.isArray(v)
+    && Object.keys(v).length === 2 && "value" in v && "confidence" in v;
+
+  function printJson(pre, envelope, ctx) {
+    const rows = [];
+    emit(rows, envelope, 0, null, true, { inFields: false, base: "" }, ctx);
+    rows.forEach((r) => pre.append(r));
+  }
+
+  // Appends nodes for `value` (under `key`) to `out`. `scope.base` is the field path of the
+  // enclosing field ("items[1]", "diagnosis"), used to name nested fields.
+  function emit(out, value, depth, key, last, scope, ctx) {
+    const pad = "  ".repeat(depth);
+    const comma = last ? "" : ",";
+    const head = (row) => { row.append(pad); if (key !== null) row.append(span("k", JSON.stringify(key)), ": "); };
+
+    if (scope.inFields && key !== null && isField(value)) {
+      const path = scope.base ? `${scope.base}.${key}` : key;
+      const block = el("span", "fld");
+      const present = value.value !== null;
+      const container = present && typeof value.value === "object";
+      if (present && value.confidence < ctx.threshold) {
+        block.classList.add(container ? "low-container" : "low");
+        ctx.counts.low++;
+      }
+      if (!present) { block.classList.add("missing"); ctx.counts.missing++; }
+      block.dataset.path = path;
+      emitObject(block, value, depth, key, last, { inFields: true, base: path, inValueOf: path }, ctx);
+      const change = ctx.lowered[path];
+      let note = null;
+      if (change) {
+        note = el("span", "note");
+        note.append(el("b", "", `▲ ${path}: confidence lowered ${change.from.toFixed(2)} → ${change.to.toFixed(2)}. `),
+                    document.createTextNode(change.reasons.join(" · ")));
+      } else if (present && value.confidence < ctx.threshold) {
+        note = el("span", "note");
+        note.append(el("b", "", `▲ ${path}: low confidence (${value.confidence.toFixed(2)}) from the model.`));
+      }
+      // a list/object field gets its note right under its first line, so it isn't lost below the rows
+      if (note) container ? block.firstChild.after(note) : block.append(note);
+      out.push(block);
+      return;
+    }
+
+    if (value !== null && typeof value === "object") {
+      const holder = el("span");
+      emitObject(holder, value, depth, key, last, scope, ctx);
+      out.push(...holder.childNodes);
+      return;
+    }
+
+    const row = el("span", "row");
+    head(row);
+    row.append(literal(value), comma);
+    out.push(row);
+  }
+
+  function emitObject(target, value, depth, key, last, scope, ctx) {
+    const pad = "  ".repeat(depth);
+    const isArr = Array.isArray(value);
+    const entries = isArr ? value.map((v, i) => [i, v]) : Object.entries(value);
+    const open = el("span", "row");
+    open.append(pad);
+    if (key !== null) open.append(span("k", JSON.stringify(key)), ": ");
+    if (!entries.length) { open.append(isArr ? "[]" : "{}", last ? "" : ","); target.append(open); return; }
+    open.append(isArr ? "[" : "{");
+    target.append(open);
+
+    entries.forEach(([k, v], i) => {
+      let child = scope;
+      if (!isArr && key === null && depth === 0 && k === "fields") child = { inFields: true, base: "" };
+      else if (scope.inValueOf && !isArr && k === "value") {
+        // inside a field's value: nested objects name their fields under this field's path
+        child = { inFields: true, base: scope.inValueOf, rows: Array.isArray(v) };
+      } else if (isArr && scope.rows) child = { inFields: true, base: `${scope.base}[${k}]` };
+      else if (scope.inValueOf) child = { ...scope, inValueOf: null };
+      const nodes = [];
+      emit(nodes, v, depth + 1, isArr ? null : k, i === entries.length - 1, child, ctx);
+      nodes.forEach((n) => target.append(n));
+    });
+
+    const close = el("span", "row");
+    close.append(pad, isArr ? "]" : "}", last ? "" : ",");
+    target.append(close);
+  }
+
+  function literal(v) {
+    if (typeof v === "string") return span("s", JSON.stringify(v));
+    if (typeof v === "number") return span("n", String(v));
+    return span("l", String(v));   // true, false, null
+  }
+  const span = (cls, text) => el("span", cls, text);
+  const pct = (x) => (x == null ? "?" : `${Math.round(x * 100)}%`);
+  const show = (id) => $(id).classList.remove("hidden");
+  const hide = (id) => $(id).classList.add("hidden");
+
+  // --- toolbar -----------------------------------------------------------------------------
+  $("show-missing").addEventListener("change", (e) => $("json").classList.toggle("show-missing", e.target.checked));
+  $("copy").addEventListener("click", async () => {
+    if (!current) return;
+    const text = JSON.stringify(current.result, null, 2);
+    try { await navigator.clipboard.writeText(text); flash("copy", "Copied"); }
+    catch { flash("copy", "Copy failed"); }
+  });
+  $("download").addEventListener("click", () => {
+    if (!current) return;
+    const blob = new Blob([JSON.stringify(current.result, null, 2)], { type: "application/json" });
+    const a = Object.assign(el("a"), { href: URL.createObjectURL(blob),
+      download: `${(current.meta.file || "result").replace(/\.[^.]+$/, "")}.json` });
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  function flash(id, text) {
+    const b = $(id), old = b.textContent;
+    b.textContent = text;
+    setTimeout(() => { b.textContent = old; }, 1200);
+  }
+})();
+</script>
+</body>
+</html>

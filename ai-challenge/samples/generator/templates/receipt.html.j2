@@ -1,0 +1,66 @@
+{# Hospital receipt or invoice. Whatever is null in doc.fields is simply not printed. #}
+{% extends "base.html.j2" %}
+{% set f = doc.fields %}{% set x = doc.extra %}
+{% block style %}
+  .totals { margin-top: 10px; margin-left: auto; width: 52%; }
+  .totals .row { display: flex; justify-content: space-between; padding: 6px 8px; }
+  .totals .grand { font-size: 12.5pt; font-weight: 800; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  .paid {
+    display: inline-block; margin-top: 14px; padding: 4px 16px; border: 3px solid #2e7d4f; color: #2e7d4f;
+    font-weight: 800; font-size: 15pt; letter-spacing: .15em; transform: rotate(-6deg);
+  }
+  .notice { margin-top: 14px; padding: 8px 10px; background: #fff6e5; border-left: 4px solid #e0a020; }
+{% endblock %}
+{% block body %}
+<header class="hdr">
+  <div class="logo">{{ x.logo_initials }}</div>
+  <div class="org">
+    <div class="org-name">{{ f.hospital_name }}</div>
+    <div class="muted">{{ x.address }}</div>
+    <div class="muted">Tel. {{ x.phone }} &middot; Tax ID {{ x.tax_id }}</div>
+  </div>
+  <div class="doc-title">{{ x.doc_title }}</div>
+</header>
+
+<table class="meta">
+  <tr><th>{{ x.number_label }}</th><td>{{ x.number }}</td><th>Date</th><td>{{ f.date }}</td></tr>
+  <tr><th>Patient</th><td>{{ f.patient_name }}</td><th>HN</th><td>{{ x.hn }}</td></tr>
+  <tr><th>Department</th><td>{{ x.department }}</td>
+    {% if x.get('due_date') %}<th>Payment due</th><td>{{ x.due_date }}</td>{% else %}<th>Visit type</th><td>{{ x.visit_type }}</td>{% endif %}
+  </tr>
+</table>
+
+<table class="grid">
+  <thead><tr>
+    <th>#</th><th>Description</th><th class="num">Qty</th>
+    <th class="num">Unit price ({{ x.currency }})</th><th class="num">Amount ({{ x.currency }})</th>
+  </tr></thead>
+  <tbody>
+  {% for it in f["items"] %}
+    <tr>
+      <td>{{ loop.index }}</td><td>{{ it.description }}</td>
+      <td class="num">{{ qty(it.quantity) }}</td>
+      <td class="num">{{ money(it.unit_price, x.money_style) }}</td>
+      <td class="num">{{ money(it.total, x.money_style) }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<div class="totals">
+  <div class="row grand"><span>{{ x.total_label }}</span><span>{{ money(f.grand_total, x.money_style) }} {{ x.currency }}</span></div>
+</div>
+
+{% if f.payment_method %}
+  <table class="meta">
+    <tr><th>Payment method</th><td>{{ f.payment_method }}</td></tr>
+    {% if x.get('payment_detail') %}<tr><th>Reference</th><td>{{ x.payment_detail }}</td></tr>{% endif %}
+    <tr><th>Cashier</th><td>{{ x.cashier }}</td></tr>
+  </table>
+  <div class="paid">PAID</div>
+{% else %}
+  <div class="notice">{{ x.unpaid_notice }}</div>
+{% endif %}
+
+<div class="footer muted">{{ x.footer }}</div>
+{% endblock %}

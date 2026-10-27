@@ -1,0 +1,38 @@
+{
+  "id": "prescription_02",
+  "type": "prescription",
+  "template": "prescription.html.j2",
+  "output": {"format": "png", "scan": {"rotate": -2.1, "seed": 1002}},
+  "hard_cases": [
+    "Scanned image: rotated, noisy PNG with no text layer.",
+    "Missing fields: the salbutamol inhaler (as-needed) has no duration and no quantity, so both must be null."
+  ],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {
+      "doctor_name": "Dr. Hoang Duc Anh",
+      "patient_name": "Vu Thanh Tung",
+      "date": "22/09/2024",
+      "medications": [
+        {"name": "Omeprazole", "dosage": "20 mg", "frequency": "1 capsule once daily before breakfast", "duration": "14 days", "quantity": "14 capsules"},
+        {"name": "Salbutamol inhaler", "dosage": "100 mcg/puff", "frequency": "2 puffs as needed for wheezing", "duration": null, "quantity": null},
+        {"name": "Prednisolone", "dosage": "5 mg", "frequency": "4 tablets once daily after breakfast", "duration": "5 days", "quantity": "20 tablets"}
+      ]
+    },
+    "extra": {
+      "accent": "#7a1f5c",
+      "logo_initials": "AK",
+      "clinic_name": "An Khang Medical Clinic",
+      "address": "18 Tran Hung Dao Street, Hoan Kiem District, Hanoi, Vietnam",
+      "phone": "+84 24 5555 0018",
+      "specialty": "Internal Medicine - Respiratory",
+      "license_no": "CCHN 004521/HNO",
+      "age_sex": "41 y / Male",
+      "weight": "68 kg",
+      "clinical_diagnosis": "Acute exacerbation of mild asthma; gastritis",
+      "allergies": "Penicillin (rash)",
+      "advice": "Rinse mouth after using the inhaler. Avoid smoke and cold air. Come back immediately if breathing gets worse or the inhaler is needed more than every 4 hours.",
+      "footer": "Bring this prescription to your follow-up visit."
+    }
+  }
+}

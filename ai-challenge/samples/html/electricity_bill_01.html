@@ -1,0 +1,118 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>electricity_bill_01</title>
+<style>
+  /* A4. PDFs use @page margins; PNG "scans" have no pages, so .page pads instead. */
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  :root { --accent: #c77700; --ink: #1c2229; --muted: #5d6874; --rule: #c9d0d8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body {
+    font-family: "Segoe UI", "DejaVu Sans", "Noto Sans", Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.4; color: var(--ink);
+  }
+  body.scan { width: 210mm; }
+  body.scan .page { padding: 14mm; }
+  h1, h2, h3 { margin: 0; }
+  .muted { color: var(--muted); font-size: 9pt; }
+  .hdr { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); }
+  .logo {
+    width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16pt; flex: none;
+  }
+  .org { flex: 1; }
+  .org-name { font-size: 15pt; font-weight: 700; }
+  .doc-title { font-size: 17pt; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-align: right; }
+  .doc-title.center { text-align: center; margin: 14px 0 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  table.meta { margin: 12px 0; }
+  table.meta th { text-align: left; color: var(--muted); font-weight: 600; width: 18%; padding: 3px 6px 3px 0; vertical-align: top; }
+  table.meta td { padding: 3px 12px 3px 0; vertical-align: top; }
+  table.grid th { background: #eef1f4; text-align: left; font-size: 9pt; padding: 6px; border-bottom: 1.5px solid var(--ink); }
+  table.grid td { padding: 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .num { text-align: right; white-space: nowrap; }
+  .section { margin-top: 14px; }
+  .section h3 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px;
+  }
+  .section p { margin: 4px 0; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  .sign { margin-top: 28px; display: flex; justify-content: flex-end; }
+  .sign-box { width: 46%; text-align: center; }
+  .sign-line { border-bottom: 1px dotted var(--ink); height: 34px; margin: 4px 0; }
+  .footer { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 6px; }
+  .page-break { break-before: page; }
+  
+  .due { margin-top: 12px; display: flex; gap: 12px; }
+  .due > div { flex: 1; background: #f1f5ee; border: 1px solid #c9d8bf; padding: 10px; }
+  .due .big { font-size: 16pt; font-weight: 800; }
+  .bar { height: 14px; background: var(--accent); display: inline-block; vertical-align: middle; }
+
+</style>
+</head>
+<body class="print">
+<div class="page">
+
+<header class="hdr">
+  <div class="logo">LE</div>
+  <div class="org">
+    <div class="org-name">Lumen Electric Utility Co.</div>
+    <div class="muted">500 Rama IV Road, Pathum Wan, Bangkok 10330, Thailand</div>
+    <div class="muted">Call centre 1129</div>
+  </div>
+  <div class="doc-title">ELECTRICITY<br>BILL</div>
+</header>
+
+<table class="meta">
+  <tr><th>Customer</th><td><b>Ms. Chalida Prasert</b></td><th>Account no.</th><td>020-0045-88713</td></tr>
+  <tr><th>Service address</th><td>77/14 Soi Ari 2, Phaya Thai, Bangkok 10400</td><th>Bill date</th><td>01/10/2024</td></tr>
+  <tr><th>Meter no.</th><td>M-55120873</td><th>Billing period</th><td>01/09/2024 - 30/09/2024</td></tr>
+</table>
+
+<div class="due">
+  <div><div class="muted">Amount due</div><div class="big">1,845.32 THB</div></div>
+  <div><div class="muted">Due date</div><div class="big">15/10/2024</div></div>
+  <div><div class="muted">Payment method</div><div class="big" style="font-size:12pt">Direct debit - Bank account ending 3302</div></div>
+</div>
+
+<div class="section">
+  <h3>Charges</h3>
+  <table class="grid">
+    <thead><tr><th>Item</th><th class="num">Units</th><th class="num">Rate</th><th class="num">Amount (THB)</th></tr></thead>
+    <tbody>
+      <tr><td>Energy charge (first 150 kWh)</td><td class="num">150</td><td class="num">3.2484</td><td class="num">487.26</td></tr>
+    
+      <tr><td>Energy charge (151-400 kWh)</td><td class="num">212</td><td class="num">4.2218</td><td class="num">895.02</td></tr>
+    
+      <tr><td>Fuel adjustment (Ft)</td><td class="num">362</td><td class="num">0.3972</td><td class="num">143.79</td></tr>
+    
+      <tr><td>Service charge</td><td class="num">1</td><td class="num">38.22</td><td class="num">38.22</td></tr>
+    
+      <tr><td>VAT 7%</td><td class="num"></td><td class="num"></td><td class="num">109.49</td></tr>
+    
+      <tr><td>Late payment carried forward</td><td class="num"></td><td class="num"></td><td class="num">171.54</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h3>Usage history (kWh)</h3>
+  <table class="meta">
+    <tr><th>Jun 2024</th><td><span class="bar" style="width: 200px"></span> 401</td></tr>
+  
+    <tr><th>Jul 2024</th><td><span class="bar" style="width: 194px"></span> 388</td></tr>
+  
+    <tr><th>Aug 2024</th><td><span class="bar" style="width: 187px"></span> 375</td></tr>
+  
+    <tr><th>Sep 2024</th><td><span class="bar" style="width: 181px"></span> 362</td></tr>
+  </table>
+</div>
+<div class="footer muted">Pay by the due date to avoid a disconnection notice. This is not a tax invoice.</div>
+
+</div>
+</body>
+</html>

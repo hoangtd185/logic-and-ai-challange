@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>discharge_01</title>
+<style>
+  /* A4. PDFs use @page margins; PNG "scans" have no pages, so .page pads instead. */
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  :root { --accent: #5b3f8c; --ink: #1c2229; --muted: #5d6874; --rule: #c9d0d8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body {
+    font-family: "Segoe UI", "DejaVu Sans", "Noto Sans", Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.4; color: var(--ink);
+  }
+  body.scan { width: 210mm; }
+  body.scan .page { padding: 14mm; }
+  h1, h2, h3 { margin: 0; }
+  .muted { color: var(--muted); font-size: 9pt; }
+  .hdr { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); }
+  .logo {
+    width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16pt; flex: none;
+  }
+  .org { flex: 1; }
+  .org-name { font-size: 15pt; font-weight: 700; }
+  .doc-title { font-size: 17pt; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-align: right; }
+  .doc-title.center { text-align: center; margin: 14px 0 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  table.meta { margin: 12px 0; }
+  table.meta th { text-align: left; color: var(--muted); font-weight: 600; width: 18%; padding: 3px 6px 3px 0; vertical-align: top; }
+  table.meta td { padding: 3px 12px 3px 0; vertical-align: top; }
+  table.grid th { background: #eef1f4; text-align: left; font-size: 9pt; padding: 6px; border-bottom: 1.5px solid var(--ink); }
+  table.grid td { padding: 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .num { text-align: right; white-space: nowrap; }
+  .section { margin-top: 14px; }
+  .section h3 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px;
+  }
+  .section p { margin: 4px 0; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  .sign { margin-top: 28px; display: flex; justify-content: flex-end; }
+  .sign-box { width: 46%; text-align: center; }
+  .sign-line { border-bottom: 1px dotted var(--ink); height: 34px; margin: 4px 0; }
+  .footer { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 6px; }
+  .page-break { break-before: page; }
+  
+</style>
+</head>
+<body class="print">
+<div class="page">
+
+<header class="hdr">
+  <div class="logo">CP</div>
+  <div class="org">
+    <div class="org-name">Chao Phraya Medical Center</div>
+    <div class="muted">1 Arun Amarin Road, Bangkok Noi, Bangkok 10700, Thailand</div>
+    
+  </div>
+  <div class="muted" style="text-align:right">Form MR-07 / Rev. 3</div>
+</header>
+
+<h1 class="doc-title center">DISCHARGE SUMMARY</h1>
+
+<table class="meta">
+  <tr><th>Patient name</th><td><b>Mrs. Somsri Chaiyaporn</b></td><th>HN</th><td>HN 58-203117</td></tr>
+  <tr><th>Date of birth</th><td>14/08/1961</td><th>Sex</th><td>Female</td></tr>
+  <tr><th>Ward</th><td colspan="3">Medical Ward 7B, bed 12</td></tr>
+  <tr><th>Admission date</th><td>02/01/2024</td><th>Discharge date</th><td>09/01/2024</td></tr>
+</table>
+
+<div class="section">
+  <h3>Diagnosis</h3>
+  <p><b>Primary diagnosis:</b> Community-acquired pneumonia, right lower lobe</p>
+  
+    <p><b>Secondary diagnoses:</b></p>
+    <ul><li>Type 2 diabetes mellitus</li><li>Essential hypertension</li></ul>
+  
+</div>
+
+<div class="section">
+  <h3>Procedures performed</h3>
+  <ul><li>Chest X-ray</li><li>Bronchoscopy with bronchoalveolar lavage</li></ul>
+</div>
+
+<div class="section">
+  <h3>Hospital course</h3>
+  <p>The patient presented with a 4-day history of productive cough, fever up to 39.2 C and right-sided pleuritic chest pain. Chest X-ray on admission showed right lower lobe consolidation. Admission blood glucose was 286 mg/dL.</p><p>Intravenous ceftriaxone and oral azithromycin were started. Because of slow clinical response by day 3, bronchoscopy with bronchoalveolar lavage was performed; cultures grew Streptococcus pneumoniae sensitive to the current regimen.</p><p>Fever settled on day 4 and oxygen was weaned to room air on day 5. Insulin was used during admission and the patient was switched back to oral agents before discharge. Blood pressure remained controlled on her usual medication.</p>
+</div>
+
+<div class="section page-break">
+  <h3>Medications on discharge</h3>
+  <ul><li>Amoxicillin/clavulanate 875/125 mg, 1 tablet twice daily for 5 more days</li><li>Metformin 1000 mg, 1 tablet twice daily with meals</li><li>Amlodipine 5 mg, 1 tablet once daily</li></ul>
+</div>
+
+<div class="section">
+  <h3>Discharge instructions</h3>
+  <p>Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.</p>
+</div>
+
+<div class="section">
+  <h3>Follow-up</h3>
+  <p>Respiratory clinic in 2 weeks with repeat chest X-ray. Diabetes clinic in 4 weeks with HbA1c.</p>
+  
+</div>
+
+<div class="sign">
+  <div class="sign-box">
+    
+    <div><b>Attending physician</b></div>
+    <div class="muted">(Signature)</div>
+    <div class="sign-line"></div>
+    <div>Dr. Pichit Rattanakorn&nbsp;</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

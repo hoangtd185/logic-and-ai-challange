@@ -1,0 +1,175 @@
+{
+  "document": "prescription_01.pdf",
+  "sha256": "492fbf7de4e8c52f961bf93b7acbd34b44817ddf21ca7782f7c76545ad072820",
+  "source_mime_type": "application/pdf",
+  "pages": 1,
+  "has_text_layer": true,
+  "model": "gemini-3.6-flash",
+  "classification": {
+    "raw": {
+      "evidence": "Document contains Rx symbol, list of medications (Amoxicillin/Clavulanate, Paracetamol, Cetirizine) with dosage, frequency, duration, and quantity, and is signed by 'Dr. Natthapong Srisuk (Prescribing physician)'.",
+      "document_type": "prescription",
+      "confidence": 0.99
+    },
+    "seconds": 0.07,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 17.69,
+        "attempts": [
+          {
+            "seconds": 17.69,
+            "http_requests": 1
+          }
+        ],
+        "http_requests": 1,
+        "request_bytes": 165965,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1518,
+          "total_output_tokens": 86,
+          "total_thought_tokens": 0,
+          "total_tokens": 1604,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "extraction": {
+    "raw": {
+      "doctor_name": {
+        "value": "Dr. Natthapong Srisuk",
+        "confidence": 0.99
+      },
+      "patient_name": {
+        "value": "Ms. Pimchanok Thongdee",
+        "confidence": 0.99
+      },
+      "date": {
+        "value": "14/09/2024",
+        "confidence": 0.99
+      },
+      "medications": {
+        "value": [
+          {
+            "name": {
+              "value": "Amoxicillin/Clavulanate",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "875/125 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "1 tablet twice daily",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "7 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "14 tablets",
+              "confidence": 0.99
+            }
+          },
+          {
+            "name": {
+              "value": "Paracetamol",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "500 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "1-2 tablets every 6 hours as needed",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "5 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "20 tablets",
+              "confidence": 0.99
+            }
+          },
+          {
+            "name": {
+              "value": "Cetirizine",
+              "confidence": 0.99
+            },
+            "dosage": {
+              "value": "10 mg",
+              "confidence": 0.99
+            },
+            "frequency": {
+              "value": "1 tablet once daily at bedtime",
+              "confidence": 0.99
+            },
+            "duration": {
+              "value": "10 days",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": "10 tablets",
+              "confidence": 0.99
+            }
+          }
+        ],
+        "confidence": 0.99
+      }
+    },
+    "adjustments": [],
+    "seconds": 0.04,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 11.15,
+        "attempts": [
+          {
+            "seconds": 11.15,
+            "http_requests": 1
+          }
+        ],
+        "http_requests": 1,
+        "request_bytes": 168647,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1881,
+          "total_output_tokens": 614,
+          "total_thought_tokens": 0,
+          "total_tokens": 2495,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "validation": [],
+  "confidence": {
+    "method": "text_layer",
+    "adjustments": [],
+    "checked_fields": 18,
+    "notes": []
+  },
+  "seconds": 0.12
+}

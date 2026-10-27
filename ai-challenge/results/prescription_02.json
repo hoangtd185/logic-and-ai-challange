@@ -1,0 +1,90 @@
+{
+  "document_type": "prescription",
+  "confidence": 0.99,
+  "fields": {
+    "doctor_name": {
+      "value": "Dr. Hoang Duc Anh",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Vu Thanh Tung",
+      "confidence": 0.99
+    },
+    "date": {
+      "value": "22/09/2024",
+      "confidence": 0.99
+    },
+    "medications": {
+      "value": [
+        {
+          "name": {
+            "value": "Omeprazole",
+            "confidence": 0.99
+          },
+          "dosage": {
+            "value": "20 mg",
+            "confidence": 0.99
+          },
+          "frequency": {
+            "value": "1 capsule once daily before breakfast",
+            "confidence": 0.99
+          },
+          "duration": {
+            "value": "14 days",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": "14 capsules",
+            "confidence": 0.99
+          }
+        },
+        {
+          "name": {
+            "value": "Salbutamol inhaler",
+            "confidence": 0.99
+          },
+          "dosage": {
+            "value": "100 mcg/puff",
+            "confidence": 0.99
+          },
+          "frequency": {
+            "value": "2 puffs as needed for wheezing",
+            "confidence": 0.99
+          },
+          "duration": {
+            "value": null,
+            "confidence": 0.0
+          },
+          "quantity": {
+            "value": null,
+            "confidence": 0.0
+          }
+        },
+        {
+          "name": {
+            "value": "Prednisolone",
+            "confidence": 0.99
+          },
+          "dosage": {
+            "value": "5 mg",
+            "confidence": 0.99
+          },
+          "frequency": {
+            "value": "4 tablets once daily after breakfast",
+            "confidence": 0.99
+          },
+          "duration": {
+            "value": "5 days",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": "20 tablets",
+            "confidence": 0.99
+          }
+        }
+      ],
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

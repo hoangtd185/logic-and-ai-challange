@@ -1,0 +1,54 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "electricity_bill_01",
+  "source_file": "negative/documents/electricity_bill_01.pdf",
+  "document_type": "unknown",
+  "fields": {
+    "hospital_name": null,
+    "patient_name": null,
+    "date": null,
+    "items": null,
+    "grand_total": null,
+    "payment_method": null,
+    "admission_date": null,
+    "discharge_date": null,
+    "diagnosis": null,
+    "procedures_performed": null,
+    "attending_physician": null,
+    "discharge_instructions": null,
+    "lab_name": null,
+    "tests": null,
+    "doctor_name": null,
+    "medications": null
+  },
+  "absent_fields": [
+    "hospital_name",
+    "patient_name",
+    "date",
+    "items",
+    "grand_total",
+    "payment_method",
+    "admission_date",
+    "discharge_date",
+    "diagnosis",
+    "procedures_performed",
+    "attending_physician",
+    "discharge_instructions",
+    "lab_name",
+    "tests",
+    "doctor_name",
+    "medications"
+  ],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Non-medical document: must be classified as 'unknown' with every field null.",
+      "Tempting look-alike: it has a customer name, a bill date, line charges, an amount due and a payment method, all of which could be mistaken for receipt fields."
+    ]
+  }
+}

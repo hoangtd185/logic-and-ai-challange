@@ -1,0 +1,51 @@
+{
+  "document_type": "discharge_summary",
+  "confidence": 0.99,
+  "fields": {
+    "hospital_name": {
+      "value": "Bệnh viện Đa khoa Tâm An",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Nguyễn Thị Lan",
+      "confidence": 0.99
+    },
+    "admission_date": {
+      "value": "10/05/2024",
+      "confidence": 0.99
+    },
+    "discharge_date": {
+      "value": "15/05/2024",
+      "confidence": 0.99
+    },
+    "diagnosis": {
+      "value": {
+        "primary": {
+          "value": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+          "confidence": 0.99
+        },
+        "secondary": {
+          "value": null,
+          "confidence": 0.0
+        }
+      },
+      "confidence": 0.99
+    },
+    "procedures_performed": {
+      "value": [
+        "Truyền dịch tĩnh mạch",
+        "Theo dõi công thức máu hằng ngày"
+      ],
+      "confidence": 0.98
+    },
+    "attending_physician": {
+      "value": "BS. CKII Phạm Văn Hùng",
+      "confidence": 0.99
+    },
+    "discharge_instructions": {
+      "value": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục.",
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

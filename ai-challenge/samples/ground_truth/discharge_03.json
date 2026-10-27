@@ -1,0 +1,44 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "discharge_03",
+  "source_file": "documents/discharge_03.pdf",
+  "document_type": "discharge_summary",
+  "fields": {
+    "hospital_name": "Bệnh viện Đa khoa Tâm An",
+    "patient_name": "Nguyễn Thị Lan",
+    "admission_date": {
+      "printed": "10/05/2024",
+      "iso": "2024-05-10"
+    },
+    "discharge_date": {
+      "printed": "15/05/2024",
+      "iso": "2024-05-15"
+    },
+    "diagnosis": {
+      "primary": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+      "secondary": null
+    },
+    "procedures_performed": [
+      "Truyền dịch tĩnh mạch",
+      "Theo dõi công thức máu hằng ngày"
+    ],
+    "attending_physician": "BS. CKII Phạm Văn Hùng",
+    "discharge_instructions": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục."
+  },
+  "absent_fields": [
+    "diagnosis.secondary"
+  ],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "vi",
+    "currency": null,
+    "hard_cases": [
+      "Vietnamese 'Giấy ra viện': all labels and values are in Vietnamese; values must be returned as printed, not translated.",
+      "Missing field: only a primary diagnosis is printed (no 'Bệnh kèm theo' section), so diagnosis.secondary must be null.",
+      "VND cost line ('8.750.000 VNĐ', dot thousands) that does not belong to any discharge-summary field."
+    ]
+  }
+}

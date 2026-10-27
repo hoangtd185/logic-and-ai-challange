@@ -1,0 +1,59 @@
+{
+  "document_type": "discharge_summary",
+  "confidence": 1.0,
+  "fields": {
+    "hospital_name": {
+      "value": "Andaman Coast Hospital",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Mr. David Lim",
+      "confidence": 0.99
+    },
+    "admission_date": {
+      "value": "26/02/2024",
+      "confidence": 0.99
+    },
+    "discharge_date": {
+      "value": "30/02/2024",
+      "confidence": 0.3
+    },
+    "diagnosis": {
+      "value": {
+        "primary": {
+          "value": "Acute appendicitis",
+          "confidence": 0.99
+        },
+        "secondary": {
+          "value": [
+            "Mild dehydration"
+          ],
+          "confidence": 0.99
+        }
+      },
+      "confidence": 0.99
+    },
+    "procedures_performed": {
+      "value": [
+        "Laparoscopic appendectomy"
+      ],
+      "confidence": 0.99
+    },
+    "attending_physician": {
+      "value": null,
+      "confidence": 0.0
+    },
+    "discharge_instructions": {
+      "value": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops.",
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": [
+    {
+      "field": "discharge_date",
+      "code": "INVALID_DATE",
+      "message": "'30/02/2024' is not a valid date: day is out of range for month (read as day 30, month 2, year 2024)",
+      "severity": "error"
+    }
+  ]
+}

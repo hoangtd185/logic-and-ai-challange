@@ -1,0 +1,104 @@
+{
+  "document_type": "receipt",
+  "confidence": 1.0,
+  "fields": {
+    "hospital_name": {
+      "value": "Siam Riverside Hospital",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Mr. Anan Wongsakul",
+      "confidence": 0.99
+    },
+    "date": {
+      "value": "12/03/2024",
+      "confidence": 0.99
+    },
+    "items": {
+      "value": [
+        {
+          "description": {
+            "value": "Consultation - Internal Medicine",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": 1.0,
+            "confidence": 0.99
+          },
+          "unit_price": {
+            "value": 1200.0,
+            "confidence": 0.99
+          },
+          "total": {
+            "value": 1200.0,
+            "confidence": 0.99
+          }
+        },
+        {
+          "description": {
+            "value": "Complete Blood Count (CBC)",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": 1.0,
+            "confidence": 0.99
+          },
+          "unit_price": {
+            "value": 450.0,
+            "confidence": 0.99
+          },
+          "total": {
+            "value": 450.0,
+            "confidence": 0.99
+          }
+        },
+        {
+          "description": {
+            "value": "Chest X-ray (PA view)",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": 1.0,
+            "confidence": 0.99
+          },
+          "unit_price": {
+            "value": 1350.0,
+            "confidence": 0.99
+          },
+          "total": {
+            "value": 1350.0,
+            "confidence": 0.99
+          }
+        },
+        {
+          "description": {
+            "value": "Amoxicillin 500 mg capsule",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": 21.0,
+            "confidence": 0.99
+          },
+          "unit_price": {
+            "value": 12.0,
+            "confidence": 0.99
+          },
+          "total": {
+            "value": 252.0,
+            "confidence": 0.99
+          }
+        }
+      ],
+      "confidence": 0.99
+    },
+    "grand_total": {
+      "value": 3252.0,
+      "confidence": 0.99
+    },
+    "payment_method": {
+      "value": "Credit card",
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

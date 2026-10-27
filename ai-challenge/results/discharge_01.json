@@ -1,0 +1,54 @@
+{
+  "document_type": "discharge_summary",
+  "confidence": 1.0,
+  "fields": {
+    "hospital_name": {
+      "value": "Chao Phraya Medical Center",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Mrs. Somsri Chaiyaporn",
+      "confidence": 0.99
+    },
+    "admission_date": {
+      "value": "02/01/2024",
+      "confidence": 0.99
+    },
+    "discharge_date": {
+      "value": "09/01/2024",
+      "confidence": 0.99
+    },
+    "diagnosis": {
+      "value": {
+        "primary": {
+          "value": "Community-acquired pneumonia, right lower lobe",
+          "confidence": 0.99
+        },
+        "secondary": {
+          "value": [
+            "Type 2 diabetes mellitus",
+            "Essential hypertension"
+          ],
+          "confidence": 0.99
+        }
+      },
+      "confidence": 0.99
+    },
+    "procedures_performed": {
+      "value": [
+        "Chest X-ray",
+        "Bronchoscopy with bronchoalveolar lavage"
+      ],
+      "confidence": 0.99
+    },
+    "attending_physician": {
+      "value": "Dr. Pichit Rattanakorn",
+      "confidence": 0.99
+    },
+    "discharge_instructions": {
+      "value": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.",
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

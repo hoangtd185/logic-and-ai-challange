@@ -1,0 +1,200 @@
+{
+  "document_type": "lab_report",
+  "confidence": 1.0,
+  "fields": {
+    "lab_name": {
+      "value": "Silom Diagnostic Laboratory",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Mr. Kittisak Boonmee",
+      "confidence": 0.99
+    },
+    "date": {
+      "value": "20/07/2024",
+      "confidence": 0.99
+    },
+    "tests": {
+      "value": [
+        {
+          "test_name": {
+            "value": "Fasting plasma glucose",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 126.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "70-99",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "high",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "HbA1c",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 6.9,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "%",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "4.0-5.6",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "high",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Total cholesterol",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 182.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "< 200",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "normal",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "LDL cholesterol",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 118.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "< 130",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "normal",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "HDL cholesterol",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 36.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "> 40",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "low",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Triglycerides",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 210.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "< 150",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "high",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Creatinine",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 0.9,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "0.7-1.3",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "normal",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Hemoglobin",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 12.1,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "g/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "13.0-17.0",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "low",
+            "confidence": 0.99
+          }
+        }
+      ],
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

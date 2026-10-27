@@ -1,0 +1,90 @@
+{
+  "document_type": "prescription",
+  "confidence": 0.99,
+  "fields": {
+    "doctor_name": {
+      "value": "Dr. Natthapong Srisuk",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Ms. Pimchanok Thongdee",
+      "confidence": 0.99
+    },
+    "date": {
+      "value": "14/09/2024",
+      "confidence": 0.99
+    },
+    "medications": {
+      "value": [
+        {
+          "name": {
+            "value": "Amoxicillin/Clavulanate",
+            "confidence": 0.99
+          },
+          "dosage": {
+            "value": "875/125 mg",
+            "confidence": 0.99
+          },
+          "frequency": {
+            "value": "1 tablet twice daily",
+            "confidence": 0.99
+          },
+          "duration": {
+            "value": "7 days",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": "14 tablets",
+            "confidence": 0.99
+          }
+        },
+        {
+          "name": {
+            "value": "Paracetamol",
+            "confidence": 0.99
+          },
+          "dosage": {
+            "value": "500 mg",
+            "confidence": 0.99
+          },
+          "frequency": {
+            "value": "1-2 tablets every 6 hours as needed",
+            "confidence": 0.99
+          },
+          "duration": {
+            "value": "5 days",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": "20 tablets",
+            "confidence": 0.99
+          }
+        },
+        {
+          "name": {
+            "value": "Cetirizine",
+            "confidence": 0.99
+          },
+          "dosage": {
+            "value": "10 mg",
+            "confidence": 0.99
+          },
+          "frequency": {
+            "value": "1 tablet once daily at bedtime",
+            "confidence": 0.99
+          },
+          "duration": {
+            "value": "10 days",
+            "confidence": 0.99
+          },
+          "quantity": {
+            "value": "10 tablets",
+            "confidence": 0.99
+          }
+        }
+      ],
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

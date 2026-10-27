@@ -1,0 +1,189 @@
+{
+  "document": "receipt_01.pdf",
+  "sha256": "baf17e93146bb23004352c7eb719216a779d10e977d2de9ae638e17491610592",
+  "source_mime_type": "application/pdf",
+  "pages": 1,
+  "has_text_layer": true,
+  "model": "gemini-3.6-flash",
+  "classification": {
+    "raw": {
+      "evidence": "Title 'RECEIPT' at the top right, table listing itemized charges (Consultation, CBC, Chest X-ray, Amoxicillin), a 'Grand total' of 3,252.00 THB, and a 'PAID' stamp.",
+      "document_type": "receipt",
+      "confidence": 1.0
+    },
+    "seconds": 0.03,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 22.18,
+        "attempts": [
+          {
+            "seconds": 22.18,
+            "http_requests": 1
+          }
+        ],
+        "http_requests": 1,
+        "request_bytes": 158401,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1518,
+          "total_output_tokens": 84,
+          "total_thought_tokens": 0,
+          "total_tokens": 1602,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "extraction": {
+    "raw": {
+      "hospital_name": {
+        "value": "Siam Riverside Hospital",
+        "confidence": 0.99
+      },
+      "patient_name": {
+        "value": "Mr. Anan Wongsakul",
+        "confidence": 0.99
+      },
+      "date": {
+        "value": "12/03/2024",
+        "confidence": 0.99
+      },
+      "items": {
+        "value": [
+          {
+            "description": {
+              "value": "Consultation - Internal Medicine",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": 1,
+              "confidence": 0.99
+            },
+            "unit_price": {
+              "value": 1200.0,
+              "confidence": 0.99
+            },
+            "total": {
+              "value": 1200.0,
+              "confidence": 0.99
+            }
+          },
+          {
+            "description": {
+              "value": "Complete Blood Count (CBC)",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": 1,
+              "confidence": 0.99
+            },
+            "unit_price": {
+              "value": 450.0,
+              "confidence": 0.99
+            },
+            "total": {
+              "value": 450.0,
+              "confidence": 0.99
+            }
+          },
+          {
+            "description": {
+              "value": "Chest X-ray (PA view)",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": 1,
+              "confidence": 0.99
+            },
+            "unit_price": {
+              "value": 1350.0,
+              "confidence": 0.99
+            },
+            "total": {
+              "value": 1350.0,
+              "confidence": 0.99
+            }
+          },
+          {
+            "description": {
+              "value": "Amoxicillin 500 mg capsule",
+              "confidence": 0.99
+            },
+            "quantity": {
+              "value": 21,
+              "confidence": 0.99
+            },
+            "unit_price": {
+              "value": 12.0,
+              "confidence": 0.99
+            },
+            "total": {
+              "value": 252.0,
+              "confidence": 0.99
+            }
+          }
+        ],
+        "confidence": 0.99
+      },
+      "grand_total": {
+        "value": 3252.0,
+        "confidence": 0.99
+      },
+      "payment_method": {
+        "value": "Credit card",
+        "confidence": 0.99
+      }
+    },
+    "adjustments": [],
+    "seconds": 0.04,
+    "call": {
+      "model": "gemini-3.6-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": {
+        "model": "gemini-3.6-flash",
+        "seconds": 95.74,
+        "attempts": [
+          {
+            "seconds": 95.74,
+            "http_requests": 2
+          }
+        ],
+        "http_requests": 2,
+        "request_bytes": 161548,
+        "usage": {
+          "total_cached_tokens": 0,
+          "total_input_tokens": 1938,
+          "total_output_tokens": 720,
+          "total_thought_tokens": 0,
+          "total_tokens": 2658,
+          "total_tool_use_tokens": 0
+        },
+        "cached": false,
+        "original": null
+      }
+    }
+  },
+  "validation": [],
+  "confidence": {
+    "method": "text_layer",
+    "adjustments": [],
+    "checked_fields": 21,
+    "notes": []
+  },
+  "seconds": 0.08
+}

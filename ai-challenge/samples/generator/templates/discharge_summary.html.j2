@@ -1,0 +1,88 @@
+{# Discharge summary, English or Vietnamese ("Giấy ra viện"). Null fields are not printed. #}
+{% extends "base.html.j2" %}
+{% set f = doc.fields %}{% set x = doc.extra %}
+{% set LABELS = {
+  "en": {
+    "title": "DISCHARGE SUMMARY", "patient": "Patient name", "hn": "HN", "dob": "Date of birth",
+    "sex": "Sex", "ward": "Ward", "admission": "Admission date", "discharge": "Discharge date",
+    "diagnosis": "Diagnosis", "primary": "Primary diagnosis", "secondary": "Secondary diagnoses",
+    "procedures": "Procedures performed", "course": "Hospital course", "meds": "Medications on discharge",
+    "instructions": "Discharge instructions", "follow_up": "Follow-up", "cost": "Total treatment cost",
+    "physician": "Attending physician", "signature": "Signature", "date_place": "",
+  },
+  "vi": {
+    "title": "GIẤY RA VIỆN", "patient": "Họ tên người bệnh", "hn": "Mã y tế", "dob": "Ngày sinh",
+    "sex": "Giới tính", "ward": "Khoa", "admission": "Ngày vào viện", "discharge": "Ngày ra viện",
+    "diagnosis": "Chẩn đoán", "primary": "Bệnh chính", "secondary": "Bệnh kèm theo",
+    "procedures": "Phương pháp điều trị / thủ thuật đã thực hiện", "course": "Tóm tắt quá trình điều trị",
+    "meds": "Thuốc ra viện", "instructions": "Lời dặn của bác sĩ", "follow_up": "Hẹn tái khám",
+    "cost": "Tổng chi phí điều trị", "physician": "Bác sĩ điều trị", "signature": "Ký, ghi rõ họ tên",
+    "date_place": "",
+  },
+} %}
+{% set L = LABELS[lang] %}
+{% block body %}
+<header class="hdr">
+  <div class="logo">{{ x.logo_initials }}</div>
+  <div class="org">
+    <div class="org-name">{{ f.hospital_name }}</div>
+    <div class="muted">{{ x.address }}</div>
+    {% if x.get('ministry_line') %}<div class="muted">{{ x.ministry_line }}</div>{% endif %}
+  </div>
+  <div class="muted" style="text-align:right">{{ x.form_code }}</div>
+</header>
+
+<h1 class="doc-title center">{{ L.title }}</h1>
+
+<table class="meta">
+  <tr><th>{{ L.patient }}</th><td><b>{{ f.patient_name }}</b></td><th>{{ L.hn }}</th><td>{{ x.hn }}</td></tr>
+  <tr><th>{{ L.dob }}</th><td>{{ x.dob }}</td><th>{{ L.sex }}</th><td>{{ x.sex }}</td></tr>
+  <tr><th>{{ L.ward }}</th><td colspan="3">{{ x.ward }}</td></tr>
+  <tr><th>{{ L.admission }}</th><td>{{ f.admission_date }}</td><th>{{ L.discharge }}</th><td>{{ f.discharge_date }}</td></tr>
+</table>
+
+<div class="section">
+  <h3>{{ L.diagnosis }}</h3>
+  <p><b>{{ L.primary }}:</b> {{ f.diagnosis.primary }}</p>
+  {% if f.diagnosis.secondary %}
+    <p><b>{{ L.secondary }}:</b></p>
+    <ul>{% for d in f.diagnosis.secondary %}<li>{{ d }}</li>{% endfor %}</ul>
+  {% endif %}
+</div>
+
+<div class="section">
+  <h3>{{ L.procedures }}</h3>
+  <ul>{% for p in f.procedures_performed %}<li>{{ p }}</li>{% endfor %}</ul>
+</div>
+
+<div class="section">
+  <h3>{{ L.course }}</h3>
+  {% for para in x.course %}<p>{{ para }}</p>{% endfor %}
+</div>
+
+<div class="section {{ 'page-break' if x.get('page_break_before_meds') else '' }}">
+  <h3>{{ L.meds }}</h3>
+  <ul>{% for m in x.discharge_meds %}<li>{{ m }}</li>{% endfor %}</ul>
+</div>
+
+<div class="section">
+  <h3>{{ L.instructions }}</h3>
+  <p>{{ f.discharge_instructions }}</p>
+</div>
+
+<div class="section">
+  <h3>{{ L.follow_up }}</h3>
+  <p>{{ x.follow_up }}</p>
+  {% if x.get('total_cost') %}<p><b>{{ L.cost }}:</b> {{ x.total_cost }}</p>{% endif %}
+</div>
+
+<div class="sign">
+  <div class="sign-box">
+    {% if x.get('sign_place_date') %}<div class="muted"><i>{{ x.sign_place_date }}</i></div>{% endif %}
+    <div><b>{{ L.physician }}</b></div>
+    <div class="muted">({{ L.signature }})</div>
+    <div class="sign-line"></div>
+    <div>{{ f.attending_physician if f.attending_physician else "" }}&nbsp;</div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,137 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>receipt_01</title>
+<style>
+  /* A4. PDFs use @page margins; PNG "scans" have no pages, so .page pads instead. */
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  :root { --accent: #0b6e74; --ink: #1c2229; --muted: #5d6874; --rule: #c9d0d8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body {
+    font-family: "Segoe UI", "DejaVu Sans", "Noto Sans", Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.4; color: var(--ink);
+  }
+  body.scan { width: 210mm; }
+  body.scan .page { padding: 14mm; }
+  h1, h2, h3 { margin: 0; }
+  .muted { color: var(--muted); font-size: 9pt; }
+  .hdr { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 3px solid var(--accent); }
+  .logo {
+    width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16pt; flex: none;
+  }
+  .org { flex: 1; }
+  .org-name { font-size: 15pt; font-weight: 700; }
+  .doc-title { font-size: 17pt; font-weight: 800; letter-spacing: .06em; color: var(--accent); text-align: right; }
+  .doc-title.center { text-align: center; margin: 14px 0 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  table.meta { margin: 12px 0; }
+  table.meta th { text-align: left; color: var(--muted); font-weight: 600; width: 18%; padding: 3px 6px 3px 0; vertical-align: top; }
+  table.meta td { padding: 3px 12px 3px 0; vertical-align: top; }
+  table.grid th { background: #eef1f4; text-align: left; font-size: 9pt; padding: 6px; border-bottom: 1.5px solid var(--ink); }
+  table.grid td { padding: 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .num { text-align: right; white-space: nowrap; }
+  .section { margin-top: 14px; }
+  .section h3 {
+    font-size: 10pt; text-transform: uppercase; letter-spacing: .05em; color: var(--accent);
+    border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin-bottom: 6px;
+  }
+  .section p { margin: 4px 0; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  .sign { margin-top: 28px; display: flex; justify-content: flex-end; }
+  .sign-box { width: 46%; text-align: center; }
+  .sign-line { border-bottom: 1px dotted var(--ink); height: 34px; margin: 4px 0; }
+  .footer { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 6px; }
+  .page-break { break-before: page; }
+  
+  .totals { margin-top: 10px; margin-left: auto; width: 52%; }
+  .totals .row { display: flex; justify-content: space-between; padding: 6px 8px; }
+  .totals .grand { font-size: 12.5pt; font-weight: 800; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  .paid {
+    display: inline-block; margin-top: 14px; padding: 4px 16px; border: 3px solid #2e7d4f; color: #2e7d4f;
+    font-weight: 800; font-size: 15pt; letter-spacing: .15em; transform: rotate(-6deg);
+  }
+  .notice { margin-top: 14px; padding: 8px 10px; background: #fff6e5; border-left: 4px solid #e0a020; }
+
+</style>
+</head>
+<body class="print">
+<div class="page">
+
+<header class="hdr">
+  <div class="logo">SR</div>
+  <div class="org">
+    <div class="org-name">Siam Riverside Hospital</div>
+    <div class="muted">88 Charoen Krung Road, Bang Rak, Bangkok 10500, Thailand</div>
+    <div class="muted">Tel. +66 2 555 0188 &middot; Tax ID 0105559012345</div>
+  </div>
+  <div class="doc-title">RECEIPT</div>
+</header>
+
+<table class="meta">
+  <tr><th>Receipt no.</th><td>SRH-RC-2403-00871</td><th>Date</th><td>12/03/2024</td></tr>
+  <tr><th>Patient</th><td>Mr. Anan Wongsakul</td><th>HN</th><td>HN 66-014528</td></tr>
+  <tr><th>Department</th><td>Outpatient - Internal Medicine</td>
+    <th>Visit type</th><td>Outpatient</td>
+  </tr>
+</table>
+
+<table class="grid">
+  <thead><tr>
+    <th>#</th><th>Description</th><th class="num">Qty</th>
+    <th class="num">Unit price (THB)</th><th class="num">Amount (THB)</th>
+  </tr></thead>
+  <tbody>
+  
+    <tr>
+      <td>1</td><td>Consultation - Internal Medicine</td>
+      <td class="num">1</td>
+      <td class="num">1,200.00</td>
+      <td class="num">1,200.00</td>
+    </tr>
+  
+    <tr>
+      <td>2</td><td>Complete Blood Count (CBC)</td>
+      <td class="num">1</td>
+      <td class="num">450.00</td>
+      <td class="num">450.00</td>
+    </tr>
+  
+    <tr>
+      <td>3</td><td>Chest X-ray (PA view)</td>
+      <td class="num">1</td>
+      <td class="num">1,350.00</td>
+      <td class="num">1,350.00</td>
+    </tr>
+  
+    <tr>
+      <td>4</td><td>Amoxicillin 500 mg capsule</td>
+      <td class="num">21</td>
+      <td class="num">12.00</td>
+      <td class="num">252.00</td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<div class="totals">
+  <div class="row grand"><span>Grand total</span><span>3,252.00 THB</span></div>
+</div>
+
+
+  <table class="meta">
+    <tr><th>Payment method</th><td>Credit card</td></tr>
+    <tr><th>Reference</th><td>VISA **** 4821, approval 503117</td></tr>
+    <tr><th>Cashier</th><td>Cashier 03 - Nattaya K.</td></tr>
+  </table>
+  <div class="paid">PAID</div>
+
+
+<div class="footer muted">This is an official receipt. Please keep it for insurance claims. Thank you for choosing Siam Riverside Hospital.</div>
+
+</div>
+</body>
+</html>

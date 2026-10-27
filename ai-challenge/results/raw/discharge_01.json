@@ -1,0 +1,97 @@
+{
+  "document": "discharge_01.pdf",
+  "sha256": "1a0fce7da0390faf7985a17b98e7853eaf976a11df5e8260db07f8f65b6ee088",
+  "source_mime_type": "application/pdf",
+  "pages": 2,
+  "has_text_layer": true,
+  "model": "gemini-3.8-flash",
+  "classification": {
+    "raw": {
+      "evidence": "Titled 'DISCHARGE SUMMARY' from Chao Phraya Medical Center. Contains 'Admission date', 'Discharge date', 'DIAGNOSIS', 'HOSPITAL COURSE', and 'DISCHARGE INSTRUCTIONS'.",
+      "document_type": "discharge_summary",
+      "confidence": 1.0
+    },
+    "seconds": 0.0,
+    "call": {
+      "model": "gemini-3.8-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": null
+    }
+  },
+  "extraction": {
+    "raw": {
+      "hospital_name": {
+        "value": "Chao Phraya Medical Center",
+        "confidence": 0.99
+      },
+      "patient_name": {
+        "value": "Mrs. Somsri Chaiyaporn",
+        "confidence": 0.99
+      },
+      "admission_date": {
+        "value": "02/01/2024",
+        "confidence": 0.99
+      },
+      "discharge_date": {
+        "value": "09/01/2024",
+        "confidence": 0.99
+      },
+      "diagnosis": {
+        "value": {
+          "primary": {
+            "value": "Community-acquired pneumonia, right lower lobe",
+            "confidence": 0.99
+          },
+          "secondary": {
+            "value": [
+              "Type 2 diabetes mellitus",
+              "Essential hypertension"
+            ],
+            "confidence": 0.99
+          }
+        },
+        "confidence": 0.99
+      },
+      "procedures_performed": {
+        "value": [
+          "Chest X-ray",
+          "Bronchoscopy with bronchoalveolar lavage"
+        ],
+        "confidence": 0.99
+      },
+      "attending_physician": {
+        "value": "Dr. Pichit Rattanakorn",
+        "confidence": 0.99
+      },
+      "discharge_instructions": {
+        "value": "Complete the full course of oral antibiotics. Check blood glucose twice daily and keep a written record. Take blood pressure medication as before. Return to the emergency department immediately if fever above 38.5 C, shortness of breath or chest pain recurs.",
+        "confidence": 0.99
+      }
+    },
+    "adjustments": [],
+    "seconds": 0.01,
+    "call": {
+      "model": "gemini-3.8-flash",
+      "seconds": 0.0,
+      "attempts": [],
+      "http_requests": 0,
+      "request_bytes": 0,
+      "usage": null,
+      "cached": true,
+      "original": null
+    }
+  },
+  "validation": [],
+  "confidence": {
+    "method": "text_layer",
+    "adjustments": [],
+    "checked_fields": 9,
+    "notes": []
+  },
+  "seconds": 0.02
+}

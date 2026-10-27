@@ -1,0 +1,47 @@
+{
+  "id": "discharge_03",
+  "type": "discharge_summary",
+  "template": "discharge_summary.html.j2",
+  "lang": "vi",
+  "output": {"format": "pdf", "pages": 1},
+  "hard_cases": [
+    "Vietnamese 'Giấy ra viện': all labels and values are in Vietnamese; values must be returned as printed, not translated.",
+    "Missing field: only a primary diagnosis is printed (no 'Bệnh kèm theo' section), so diagnosis.secondary must be null.",
+    "VND cost line ('8.750.000 VNĐ', dot thousands) that does not belong to any discharge-summary field."
+  ],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {
+      "hospital_name": "Bệnh viện Đa khoa Tâm An",
+      "patient_name": "Nguyễn Thị Lan",
+      "admission_date": "10/05/2024",
+      "discharge_date": "15/05/2024",
+      "diagnosis": {
+        "primary": "Sốt xuất huyết Dengue có dấu hiệu cảnh báo",
+        "secondary": null
+      },
+      "procedures_performed": ["Truyền dịch tĩnh mạch", "Theo dõi công thức máu hằng ngày"],
+      "attending_physician": "BS. CKII Phạm Văn Hùng",
+      "discharge_instructions": "Nghỉ ngơi tại nhà, uống nhiều nước và dung dịch oresol. Không tự ý dùng aspirin hoặc ibuprofen. Đến bệnh viện ngay nếu có chảy máu cam, chảy máu chân răng, đau bụng nhiều hoặc nôn liên tục."
+    },
+    "extra": {
+      "accent": "#b0272f",
+      "logo_initials": "TA",
+      "address": "45 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+      "ministry_line": "SỞ Y TẾ TP. HỒ CHÍ MINH",
+      "form_code": "MS: 01/BV-RV",
+      "hn": "BN-2405-33817",
+      "dob": "21/09/1987",
+      "sex": "Nữ",
+      "ward": "Khoa Truyền nhiễm",
+      "course": [
+        "Người bệnh vào viện ngày thứ 3 của sốt cao liên tục, đau cơ, đau sau hốc mắt. Xét nghiệm NS1 dương tính, tiểu cầu giảm còn 62 G/L, có dấu hiệu cảnh báo đau bụng vùng gan.",
+        "Được truyền dịch theo phác đồ, theo dõi sinh hiệu và công thức máu hằng ngày. Tiểu cầu hồi phục lên 148 G/L, hết sốt 48 giờ, ăn uống tốt trước khi ra viện."
+      ],
+      "discharge_meds": ["Paracetamol 500 mg, uống 1 viên khi sốt trên 38,5 độ C, cách nhau ít nhất 6 giờ"],
+      "follow_up": "Tái khám sau 7 ngày tại phòng khám Truyền nhiễm, mang theo giấy ra viện này.",
+      "total_cost": "8.750.000 VNĐ",
+      "sign_place_date": "TP. Hồ Chí Minh, ngày 15 tháng 05 năm 2024"
+    }
+  }
+}

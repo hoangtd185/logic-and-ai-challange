@@ -1,0 +1,134 @@
+{
+  "document_type": "lab_report",
+  "confidence": 1.0,
+  "fields": {
+    "lab_name": {
+      "value": "Mekong Clinical Laboratory",
+      "confidence": 0.99
+    },
+    "patient_name": {
+      "value": "Le Thi Hoa",
+      "confidence": 0.99
+    },
+    "date": {
+      "value": "03/08/2024",
+      "confidence": 0.99
+    },
+    "tests": {
+      "value": [
+        {
+          "test_name": {
+            "value": "White blood cells (WBC)",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 11.8,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "x10^3/uL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "4.0-10.0",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "high",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Hemoglobin",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 11.2,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "g/dL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "12.0-15.5",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "low",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Platelets",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 245.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "x10^3/uL",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "150-450",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "normal",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "C-reactive protein (CRP)",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": 24.0,
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": "mg/L",
+            "confidence": 0.99
+          },
+          "reference_range": {
+            "value": "< 5",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": "high",
+            "confidence": 0.99
+          }
+        },
+        {
+          "test_name": {
+            "value": "Urine protein",
+            "confidence": 0.99
+          },
+          "result": {
+            "value": "Negative",
+            "confidence": 0.99
+          },
+          "unit": {
+            "value": null,
+            "confidence": 0.0
+          },
+          "reference_range": {
+            "value": "Negative",
+            "confidence": 0.99
+          },
+          "flag": {
+            "value": null,
+            "confidence": 0.0
+          }
+        }
+      ],
+      "confidence": 0.99
+    }
+  },
+  "validation_errors": []
+}

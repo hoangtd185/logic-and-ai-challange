@@ -1,0 +1,54 @@
+{# Prescription. Null medication cells print empty. #}
+{% extends "base.html.j2" %}
+{% set f = doc.fields %}{% set x = doc.extra %}
+{% block style %}
+  .rx { font-family: Georgia, "DejaVu Serif", serif; font-size: 30pt; font-weight: 700; color: var(--accent); margin: 10px 0 2px; }
+  .doctor { text-align: right; }
+  .doctor .name { font-size: 13pt; font-weight: 700; }
+{% endblock %}
+{% block body %}
+<header class="hdr">
+  <div class="logo">{{ x.logo_initials }}</div>
+  <div class="org">
+    <div class="org-name">{{ x.clinic_name }}</div>
+    <div class="muted">{{ x.address }}</div>
+    <div class="muted">Tel. {{ x.phone }}</div>
+  </div>
+  <div class="doctor">
+    <div class="name">{{ f.doctor_name }}</div>
+    <div class="muted">{{ x.specialty }}</div>
+    <div class="muted">License no. {{ x.license_no }}</div>
+  </div>
+</header>
+
+<table class="meta">
+  <tr><th>Patient</th><td><b>{{ f.patient_name }}</b></td><th>Date</th><td>{{ f.date }}</td></tr>
+  <tr><th>Age / Sex</th><td>{{ x.age_sex }}</td><th>Weight</th><td>{{ x.weight }}</td></tr>
+  <tr><th>Diagnosis</th><td colspan="3">{{ x.clinical_diagnosis }}</td></tr>
+  <tr><th>Allergies</th><td colspan="3">{{ x.allergies }}</td></tr>
+</table>
+
+<div class="rx">&#8478;</div>
+<table class="grid">
+  <thead><tr><th>#</th><th>Medication</th><th>Dosage</th><th>Frequency</th><th>Duration</th><th>Quantity</th></tr></thead>
+  <tbody>
+  {% for m in f.medications %}
+    <tr>
+      <td>{{ loop.index }}</td><td><b>{{ m.name }}</b></td><td>{{ m.dosage or "" }}</td>
+      <td>{{ m.frequency or "" }}</td><td>{{ m.duration or "" }}</td><td>{{ m.quantity if m.quantity is not none else "" }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<div class="section"><h3>Advice</h3><p>{{ x.advice }}</p></div>
+
+<div class="sign">
+  <div class="sign-box">
+    <div class="sign-line"></div>
+    <div>{{ f.doctor_name }}</div>
+    <div class="muted">Prescribing physician</div>
+  </div>
+</div>
+<div class="footer muted">{{ x.footer }}</div>
+{% endblock %}

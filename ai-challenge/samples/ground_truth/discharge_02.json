@@ -1,0 +1,49 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "discharge_02",
+  "source_file": "documents/discharge_02.pdf",
+  "document_type": "discharge_summary",
+  "fields": {
+    "hospital_name": "Andaman Coast Hospital",
+    "patient_name": "Mr. David Lim",
+    "admission_date": {
+      "printed": "26/02/2024",
+      "iso": "2024-02-26"
+    },
+    "discharge_date": {
+      "printed": "30/02/2024",
+      "iso": null
+    },
+    "diagnosis": {
+      "primary": "Acute appendicitis",
+      "secondary": [
+        "Mild dehydration"
+      ]
+    },
+    "procedures_performed": [
+      "Laparoscopic appendectomy"
+    ],
+    "attending_physician": null,
+    "discharge_instructions": "Keep the wound dressings dry for 5 days. No heavy lifting or strenuous exercise for 2 weeks. Soft diet for 3 days, then return to normal diet. Seek care if the wound becomes red or swollen or if fever develops."
+  },
+  "absent_fields": [
+    "attending_physician"
+  ],
+  "expected_validation_errors": [
+    {
+      "field": "discharge_date",
+      "code": "INVALID_DATE"
+    }
+  ],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Missing field: the physician signature block is blank and no doctor is named anywhere, so attending_physician must be null.",
+      "Invalid date: discharge date printed as 30/02/2024 (February 30th does not exist), so INVALID_DATE is expected."
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "ground_truth_version": 1,
+  "document_id": "prescription_01",
+  "source_file": "documents/prescription_01.pdf",
+  "document_type": "prescription",
+  "fields": {
+    "doctor_name": "Dr. Natthapong Srisuk",
+    "patient_name": "Ms. Pimchanok Thongdee",
+    "date": {
+      "printed": "14/09/2024",
+      "iso": "2024-09-14"
+    },
+    "medications": [
+      {
+        "name": "Amoxicillin/Clavulanate",
+        "dosage": "875/125 mg",
+        "frequency": "1 tablet twice daily",
+        "duration": "7 days",
+        "quantity": "14 tablets"
+      },
+      {
+        "name": "Paracetamol",
+        "dosage": "500 mg",
+        "frequency": "1-2 tablets every 6 hours as needed",
+        "duration": "5 days",
+        "quantity": "20 tablets"
+      },
+      {
+        "name": "Cetirizine",
+        "dosage": "10 mg",
+        "frequency": "1 tablet once daily at bedtime",
+        "duration": "10 days",
+        "quantity": "10 tablets"
+      }
+    ]
+  },
+  "absent_fields": [],
+  "expected_validation_errors": [],
+  "meta": {
+    "format": "pdf",
+    "pages": 1,
+    "scanned": false,
+    "language": "en",
+    "currency": null,
+    "hard_cases": [
+      "Clean baseline: 3 fully specified medications."
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "receipt_01",
+  "type": "receipt",
+  "template": "receipt.html.j2",
+  "output": {"format": "pdf", "pages": 1},
+  "hard_cases": ["Clean baseline: card payment, line items sum exactly to the grand total."],
+  "expected_validation_errors": [],
+  "doc": {
+    "fields": {
+      "hospital_name": "Siam Riverside Hospital",
+      "patient_name": "Mr. Anan Wongsakul",
+      "date": "12/03/2024",
+      "items": [
+        {"description": "Consultation - Internal Medicine", "quantity": 1, "unit_price": 1200.00, "total": 1200.00},
+        {"description": "Complete Blood Count (CBC)", "quantity": 1, "unit_price": 450.00, "total": 450.00},
+        {"description": "Chest X-ray (PA view)", "quantity": 1, "unit_price": 1350.00, "total": 1350.00},
+        {"description": "Amoxicillin 500 mg capsule", "quantity": 21, "unit_price": 12.00, "total": 252.00}
+      ],
+      "grand_total": 3252.00,
+      "payment_method": "Credit card"
+    },
+    "extra": {
+      "accent": "#0b6e74",
+      "logo_initials": "SR",
+      "address": "88 Charoen Krung Road, Bang Rak, Bangkok 10500, Thailand",
+      "phone": "+66 2 555 0188",
+      "tax_id": "0105559012345",
+      "doc_title": "RECEIPT",
+      "number_label": "Receipt no.",
+      "number": "SRH-RC-2403-00871",
+      "hn": "HN 66-014528",
+      "department": "Outpatient - Internal Medicine",
+      "visit_type": "Outpatient",
+      "currency": "THB",
+      "money_style": "comma",
+      "total_label": "Grand total",
+      "payment_detail": "VISA **** 4821, approval 503117",
+      "cashier": "Cashier 03 - Nattaya K.",
+      "footer": "This is an official receipt. Please keep it for insurance claims. Thank you for choosing Siam Riverside Hospital."
+    }
+  }
+}

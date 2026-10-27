@@ -1,0 +1,55 @@
+{# Lab report. A null unit or flag prints as an empty cell: the flag is never derived from the range. #}
+{% extends "base.html.j2" %}
+{% set f = doc.fields %}{% set x = doc.extra %}
+{% set FLAG = {"high": "H", "low": "L", "normal": "N"} %}
+{% block style %}
+  .flag-high, .flag-low { font-weight: 800; color: #b3261e; }
+  td.flag { text-align: center; width: 46px; }
+{% endblock %}
+{% block body %}
+<header class="hdr">
+  <div class="logo">{{ x.logo_initials }}</div>
+  <div class="org">
+    <div class="org-name">{{ f.lab_name }}</div>
+    <div class="muted">{{ x.address }}</div>
+    <div class="muted">{{ x.accreditation }}</div>
+  </div>
+  <div class="doc-title">LABORATORY<br>REPORT</div>
+</header>
+
+<table class="meta">
+  <tr><th>Patient</th><td><b>{{ f.patient_name }}</b></td><th>Lab no.</th><td>{{ x.lab_no }}</td></tr>
+  <tr><th>Age / Sex</th><td>{{ x.age_sex }}</td><th>Report date</th><td>{{ f.date }}</td></tr>
+  <tr><th>Referred by</th><td>{{ x.referred_by }}</td><th>Specimen</th><td>{{ x.specimen }}</td></tr>
+</table>
+
+{% for group in x.groups %}
+<div class="section">
+  <h3>{{ group.title }}</h3>
+  <table class="grid">
+    <thead><tr><th>Test</th><th class="num">Result</th><th>Unit</th><th>Reference range</th><th class="flag">Flag</th></tr></thead>
+    <tbody>
+    {% for i in group.tests %}{% set t = f.tests[i] %}
+      <tr>
+        <td>{{ t.test_name }}</td>
+        <td class="num {{ 'flag-' ~ t.flag if t.flag else '' }}">{{ t.result }}</td>
+        <td>{{ t.unit if t.unit is not none else "" }}</td>
+        <td>{{ t.reference_range }}</td>
+        <td class="flag {{ 'flag-' ~ t.flag if t.flag else '' }}">{{ FLAG[t.flag] if t.flag else "" }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+
+<div class="sign">
+  <div class="sign-box">
+    <div class="sign-line"></div>
+    <div>{{ x.technologist }}</div>
+    <div class="muted">Medical Technologist</div>
+  </div>
+</div>
+
+<div class="footer muted">Flag legend: H = above reference range, L = below reference range, N = within range. {{ x.footer }}</div>
+{% endblock %}

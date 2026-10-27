@@ -1,0 +1,331 @@
+{
+  "documents": {
+    "discharge_01": {
+      "file": "samples/documents/discharge_01.pdf",
+      "status": "ok",
+      "model": "gemini-3.8-flash",
+      "document_type": "discharge_summary",
+      "confidence": 1.0,
+      "null_fields": "0/9",
+      "issues": [],
+      "validation_errors": [],
+      "adjustments": 0,
+      "confidence_method": "text_layer",
+      "confidence_notes": [],
+      "lowered": [],
+      "pages": 2,
+      "wall_seconds": 0.02,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true
+        },
+        {
+          "step": "extraction",
+          "cached": true
+        }
+      ],
+      "updated": "2026-10-27T02:11:01+00:00"
+    },
+    "discharge_02": {
+      "file": "samples/documents/discharge_02.pdf",
+      "status": "ok",
+      "model": "gemini-3.8-flash",
+      "document_type": "discharge_summary",
+      "confidence": 1.0,
+      "null_fields": "1/9",
+      "issues": [
+        "INVALID_DATE"
+      ],
+      "validation_errors": [
+        {
+          "field": "discharge_date",
+          "code": "INVALID_DATE",
+          "message": "'30/02/2024' is not a valid date: day is out of range for month (read as day 30, month 2, year 2024)",
+          "severity": "error"
+        }
+      ],
+      "adjustments": 0,
+      "confidence_method": "text_layer",
+      "confidence_notes": [],
+      "lowered": [
+        {
+          "field": "discharge_date",
+          "from": 0.99,
+          "to": 0.3,
+          "reasons": [
+            "validation INVALID_DATE: '30/02/2024' is not a valid date: day is out of range for month (read as day 30, month 2, year 2024)"
+          ]
+        }
+      ],
+      "pages": 1,
+      "wall_seconds": 0.01,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true
+        },
+        {
+          "step": "extraction",
+          "cached": true
+        }
+      ],
+      "updated": "2026-10-27T02:11:02+00:00"
+    },
+    "discharge_03": {
+      "file": "samples/documents/discharge_03.pdf",
+      "status": "ok",
+      "model": "gemini-3.8-flash",
+      "document_type": "discharge_summary",
+      "confidence": 0.99,
+      "null_fields": "1/9",
+      "issues": [],
+      "validation_errors": [],
+      "adjustments": 0,
+      "confidence_method": "text_layer",
+      "confidence_notes": [],
+      "lowered": [],
+      "pages": 1,
+      "wall_seconds": 0.01,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true
+        },
+        {
+          "step": "extraction",
+          "cached": true
+        }
+      ],
+      "updated": "2026-10-27T02:11:02+00:00"
+    },
+    "electricity_bill_01": {
+      "file": "samples/negative/documents/electricity_bill_01.pdf",
+      "status": "failed",
+      "model": "gemini-3.6-flash# GEMINI_THINKING_LEVEL=low",
+      "error_kind": "error",
+      "error": "Gemini call failed after 1 attempt(s): Error code: 404 - {'error': {'message': \"Model 'gemini-3.6-flash# GEMINI_THINKING_LEVEL=low' not found. Did you mean 'gemini-3.1-flash-image-preview'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models\", 'code': 'not_found'}}",
+      "updated": "2026-10-26T13:36:21+00:00"
+    },
+    "lab_01": {
+      "file": "samples/documents/lab_01.pdf",
+      "status": "ok",
+      "model": "gemini-3.8-flash",
+      "document_type": "lab_report",
+      "confidence": 1.0,
+      "null_fields": "0/43",
+      "issues": [],
+      "validation_errors": [],
+      "adjustments": 0,
+      "confidence_method": "text_layer",
+      "confidence_notes": [],
+      "lowered": [],
+      "pages": 1,
+      "wall_seconds": 0.02,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true
+        },
+        {
+          "step": "extraction",
+          "cached": true
+        }
+      ],
+      "updated": "2026-10-27T02:11:03+00:00"
+    },
+    "lab_02": {
+      "file": "samples/documents/lab_02.png",
+      "status": "failed",
+      "model": "gemini-3.8-flash",
+      "error_kind": "error",
+      "error": "Gemini call failed after 1 attempt(s): Error code: 400 - {'error': {'message': 'Thinking level THINKING_LEVEL_MINIMAL is not supported for this model. Please retry with other thinking level.', 'code': 'invalid_request'}}",
+      "updated": "2026-10-27T02:08:06+00:00"
+    },
+    "prescription_01": {
+      "file": "samples/documents/prescription_01.pdf",
+      "status": "ok",
+      "model": "gemini-3.6-flash",
+      "document_type": "prescription",
+      "confidence": 0.99,
+      "null_fields": "0/18",
+      "issues": [],
+      "validation_errors": [],
+      "adjustments": 0,
+      "confidence_method": "text_layer",
+      "confidence_notes": [],
+      "lowered": [],
+      "pages": 1,
+      "wall_seconds": 0.12,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true,
+          "seconds": 17.69,
+          "attempts": 1,
+          "http_requests": 1,
+          "request_kb": 162,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1518,
+            "total_output_tokens": 86,
+            "total_thought_tokens": 0,
+            "total_tokens": 1604,
+            "total_tool_use_tokens": 0
+          }
+        },
+        {
+          "step": "extraction",
+          "cached": true,
+          "seconds": 11.15,
+          "attempts": 1,
+          "http_requests": 1,
+          "request_kb": 165,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1881,
+            "total_output_tokens": 614,
+            "total_thought_tokens": 0,
+            "total_tokens": 2495,
+            "total_tool_use_tokens": 0
+          }
+        }
+      ],
+      "updated": "2026-10-27T02:02:38+00:00"
+    },
+    "prescription_02": {
+      "file": "samples/documents/prescription_02.png",
+      "status": "ok",
+      "model": "gemini-3.6-flash",
+      "document_type": "prescription",
+      "confidence": 0.99,
+      "null_fields": "2/18",
+      "issues": [],
+      "validation_errors": [],
+      "adjustments": 0,
+      "confidence_method": "double_reading",
+      "confidence_notes": [],
+      "lowered": [],
+      "pages": 1,
+      "wall_seconds": 0.1,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true,
+          "seconds": 47.11,
+          "attempts": 1,
+          "http_requests": 1,
+          "request_kb": 226,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1518,
+            "total_output_tokens": 79,
+            "total_thought_tokens": 0,
+            "total_tokens": 1597,
+            "total_tool_use_tokens": 0
+          }
+        },
+        {
+          "step": "extraction",
+          "cached": true,
+          "seconds": 31.93,
+          "attempts": 1,
+          "http_requests": 1,
+          "request_kb": 229,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1881,
+            "total_output_tokens": 591,
+            "total_thought_tokens": 0,
+            "total_tokens": 2472,
+            "total_tool_use_tokens": 0
+          }
+        },
+        {
+          "step": "second_reading",
+          "cached": true,
+          "seconds": 89.57,
+          "attempts": 1,
+          "http_requests": 2,
+          "request_kb": 229,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1920,
+            "total_output_tokens": 591,
+            "total_thought_tokens": 0,
+            "total_tokens": 2511,
+            "total_tool_use_tokens": 0
+          }
+        }
+      ],
+      "updated": "2026-10-27T02:02:39+00:00"
+    },
+    "receipt_01": {
+      "file": "samples/documents/receipt_01.pdf",
+      "status": "ok",
+      "model": "gemini-3.6-flash",
+      "document_type": "receipt",
+      "confidence": 1.0,
+      "null_fields": "0/21",
+      "issues": [],
+      "validation_errors": [],
+      "adjustments": 0,
+      "confidence_method": "text_layer",
+      "confidence_notes": [],
+      "lowered": [],
+      "pages": 1,
+      "wall_seconds": 0.08,
+      "calls": [
+        {
+          "step": "classification",
+          "cached": true,
+          "seconds": 22.18,
+          "attempts": 1,
+          "http_requests": 1,
+          "request_kb": 155,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1518,
+            "total_output_tokens": 84,
+            "total_thought_tokens": 0,
+            "total_tokens": 1602,
+            "total_tool_use_tokens": 0
+          }
+        },
+        {
+          "step": "extraction",
+          "cached": true,
+          "seconds": 95.74,
+          "attempts": 1,
+          "http_requests": 2,
+          "request_kb": 158,
+          "usage": {
+            "total_cached_tokens": 0,
+            "total_input_tokens": 1938,
+            "total_output_tokens": 720,
+            "total_thought_tokens": 0,
+            "total_tokens": 2658,
+            "total_tool_use_tokens": 0
+          }
+        }
+      ],
+      "updated": "2026-10-27T02:02:39+00:00"
+    },
+    "receipt_02": {
+      "file": "samples/documents/receipt_02.pdf",
+      "status": "failed",
+      "model": "gemini-3.6-flash",
+      "error_kind": "network",
+      "error": "Gemini call failed after 5 attempt(s): no reply within 120 s (upload + server time, including the SDK's own resend)",
+      "updated": "2026-10-26T13:56:25+00:00"
+    },
+    "receipt_03": {
+      "file": "samples/documents/receipt_03.png",
+      "status": "failed",
+      "model": "gemini-3.6-flash# GEMINI_THINKING_LEVEL=low",
+      "error_kind": "error",
+      "error": "Gemini call failed after 1 attempt(s): Error code: 404 - {'error': {'message': \"Model 'gemini-3.6-flash# GEMINI_THINKING_LEVEL=low' not found. Did you mean 'gemini-3.1-flash-tts-preview'? Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models\", 'code': 'not_found'}}",
+      "updated": "2026-10-26T13:36:20+00:00"
+    }
+  }
+}
