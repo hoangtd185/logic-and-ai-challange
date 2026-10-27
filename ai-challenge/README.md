@@ -14,6 +14,7 @@ scan, and the validation rules.
 - **Design and results:** [WRITEUP.md](WRITEUP.md): prompt design, how confidence
   works, key decisions, evaluation, what I'd improve, time spent.
 - **The 10 test documents and their traps:** [samples/MANIFEST.md](samples/MANIFEST.md).
+- **AI conversation log:** [full chat history with the coding agent](https://docs.google.com/document/d/1pawlNyBATXu6OVMBbMFonx0i2eHANyMXZ-wMrhpvgBM/edit?usp=sharing).
 
 ## Quick start
 
